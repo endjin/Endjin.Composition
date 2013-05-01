@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{69D6734E-01F0-4298-87E2-E52CCC79E9E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Endjin.Core.Composition.Specs.Net40</RootNamespace>
+    <AssemblyName>Endjin.Core.Composition.Specs.Net40</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NET40</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExpectedObjects">
+      <HintPath>..\..\Packages\ExpectedObjects.1.0.0.2\lib\ExpectedObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\..\Packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\Packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Should">
+      <HintPath>..\..\Packages\Should.1.1.12.0\lib\Should.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecsFor">
+      <HintPath>..\..\Packages\SpecsFor.2.6.0\lib\net40\SpecsFor.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\..\Packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.AutoMocking">
+      <HintPath>..\..\Packages\structuremap.automocking.2.6.4.1\lib\net40\StructureMap.AutoMocking.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\Context\a_bootstrapper_is_available.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\Context\a_bootstrapper_is_available.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\Context\a_container_is_available.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\Context\a_container_is_available.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\Context\the_service_locator_has_been_initialized.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\Context\the_service_locator_has_been_initialized.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_and_a_bootstrapper.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_and_a_bootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_but_no_bootstrapper.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_but_no_bootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_shutting_down_the_service_locator.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_shutting_down_the_service_locator.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_shutting_down_the_service_locator_when_it_has_not_been_initialized.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_shutting_down_the_service_locator_when_it_has_not_been_initialized.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\Context\content_is_registered.cs">
+      <Link>Composition\ContentFactorySpecs\Context\content_is_registered.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\Context\content_is_registered_without_format.cs">
+      <Link>Composition\ContentFactorySpecs\Context\content_is_registered_without_format.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\Context\ExampleContent.cs">
+      <Link>Composition\ContentFactorySpecs\Context\ExampleContent.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\Context\MoreExampleContent.cs">
+      <Link>Composition\ContentFactorySpecs\Context\MoreExampleContent.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\Context\TestContentFactory.cs">
+      <Link>Composition\ContentFactorySpecs\Context\TestContentFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_registered_that_has_already_been_registered.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_registered_that_has_already_been_registered.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_registered_that_has_already_been_registered_with_a_different_type.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_registered_that_has_already_been_registered_with_a_different_type.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_requested_that_has_been_registered.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_requested_that_has_been_registered.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_requested_that_has_been_registered_without_format.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_requested_that_has_been_registered_without_format.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_requested_that_has_not_been_registered.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_requested_that_has_not_been_registered.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_requested_that_has_not_been_registered_with_fallback.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_requested_that_has_not_been_registered_with_fallback.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_requested_with_fallback_that_has_been_registered.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_requested_with_fallback_that_has_been_registered.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ContentFactorySpecs\when_content_is_requested_with_fallback_that_has_been_registered_without_format.cs">
+      <Link>Composition\ContentFactorySpecs\when_content_is_requested_with_fallback_that_has_been_registered_without_format.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\Context\a_container_is_available.cs">
+      <Link>Composition\Context\a_container_is_available.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\Context\the_service_locator_is_initialized.cs">
+      <Link>Composition\Context\the_service_locator_is_initialized.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\DesktopBootstrapperSpecs\Context\ExampleInstaller.cs">
+      <Link>Composition\DesktopBootstrapperSpecs\Context\ExampleInstaller.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\DesktopBootstrapperSpecs\when_installers_are_requested_from_the_bootstrapper.cs">
+      <Link>Composition\DesktopBootstrapperSpecs\when_installers_are_requested_from_the_bootstrapper.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\FactorySpecs\Context\ExampleEntity.cs">
+      <Link>Composition\FactorySpecs\Context\ExampleEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\FactorySpecs\Context\TestFactory.cs">
+      <Link>Composition\FactorySpecs\Context\TestFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\FactorySpecs\when_an_entity_is_requested.cs">
+      <Link>Composition\FactorySpecs\when_an_entity_is_requested.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\NamedFactorySpecs\Context\ExampleEntity.cs">
+      <Link>Composition\NamedFactorySpecs\Context\ExampleEntity.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\NamedFactorySpecs\Context\TestFactory.cs">
+      <Link>Composition\NamedFactorySpecs\Context\TestFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\NamedFactorySpecs\when_an_entity_is_requested.cs">
+      <Link>Composition\NamedFactorySpecs\when_an_entity_is_requested.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Helpers\ITestStateWithContext.cs">
+      <Link>Helpers\ITestStateWithContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Helpers\SharedContext.cs">
+      <Link>Helpers\SharedContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Helpers\Spec.cs">
+      <Link>Helpers\Spec.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Helpers\SpecificationsFor.cs">
+      <Link>Helpers\SpecificationsFor.cs</Link>
+    </Compile>
+    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Endjin.Core.Composition.Net40\Endjin.Core.Composition.Net40.csproj">
+      <Project>{62954e9b-a7de-47b3-9b62-aacd2686ce73}</Project>
+      <Name>Endjin.Core.Composition.Net40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container.Net40\Endjin.Core.Container.Net40.csproj">
+      <Project>{9c8a9c5e-c691-4fd8-8580-8bcb1675a2e8}</Project>
+      <Name>Endjin.Core.Container.Net40</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
