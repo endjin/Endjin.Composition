@@ -1,4 +1,2 @@
-CoreV3
+Endjin.Core.Composition V2
 ======
-
-Endjin Core Libraries
