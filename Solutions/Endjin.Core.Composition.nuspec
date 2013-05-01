@@ -10,15 +10,15 @@
     <description>Endjin's Composition Framework</description>
   </metadata>
   <files>
-    <file src="EndjinCoreContainerNET40.dll" target="lib\net40-client\EndjinCoreContainerNET40.dll" />
-    <file src="EndjinCoreContainerNET40.pdb" target="lib\net40-client\EndjinCoreContainerNET40.pdb" />
-    <file src="EndjinCoreCompositionNET40.dll" target="lib\net40-client\EndjinCoreCompositionNET40.dll" />
-    <file src="EndjinCoreCompositionNET40.pdb" target="lib\net40-client\EndjinCoreCompositionNET40.pdb" />
+    <file src="EndjinCoreContainerNet40.dll" target="lib\net40-client\EndjinCoreContainerNET40.dll" />
+    <file src="EndjinCoreContainerNet40.pdb" target="lib\net40-client\EndjinCoreContainerNET40.pdb" />
+    <file src="EndjinCoreCompositionNet40.dll" target="lib\net40-client\EndjinCoreCompositionNET40.dll" />
+    <file src="EndjinCoreCompositionNet40.pdb" target="lib\net40-client\EndjinCoreCompositionNET40.pdb" />
 	
-    <file src="EndjinCoreContainerNET40.dll" target="lib\net40-full\EndjinCoreContainerNET40.dll" />
-    <file src="EndjinCoreContainerNET40.pdb" target="lib\net40-full\EndjinCoreContainerNET40.pdb" />
-    <file src="EndjinCoreCompositionNET40.dll" target="lib\net40-full\EndjinCoreCompositionNET40.dll" />
-    <file src="EndjinCoreCompositionNET40.pdb" target="lib\net40-full\EndjinCoreCompositionNET40.pdb" />
+    <file src="EndjinCoreContainerNet40.dll" target="lib\net40-full\EndjinCoreContainerNET40.dll" />
+    <file src="EndjinCoreContainerNet40.pdb" target="lib\net40-full\EndjinCoreContainerNET40.pdb" />
+    <file src="EndjinCoreCompositionNet40.dll" target="lib\net40-full\EndjinCoreCompositionNET40.dll" />
+    <file src="EndjinCoreCompositionNet40.pdb" target="lib\net40-full\EndjinCoreCompositionNET40.pdb" />
 	
     <file src="EndjinCoreContainer.dll" target="lib\Net45\EndjinCoreContainer.dll" />
     <file src="EndjinCoreContainer.pdb" target="lib\Net45\EndjinCoreContainer.pdb" />
