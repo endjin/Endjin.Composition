@@ -7,7 +7,7 @@
     <id>Endjin.Core.Composition</id>
     <title>Endjin Composition Framework</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple.</description>
+    <description>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple. This framework supports .NET 4.0, .NET 4.5, WinRT, WP8 and Silverlight 4/5.</description>
     <iconUrl>https://raw.github.com/endjin/Endjin.Core.Composition-V2/master/Assets/Composition.png</iconUrl>
   </metadata>
   <files>
