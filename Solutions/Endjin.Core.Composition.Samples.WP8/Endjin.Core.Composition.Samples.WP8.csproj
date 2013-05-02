@@ -119,7 +119,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
@@ -153,17 +152,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EndjinCoreComposition">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\WP8\EndjinCoreComposition.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainer">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\WP8\EndjinCoreContainer.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainerWP8">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\WP8\EndjinCoreContainerWP8.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Endjin.Core.Composition\Endjin.Core.Composition.csproj">
+      <Project>{A7D96096-E0F7-4A9E-84D5-6842E7CF5804}</Project>
+      <Name>Endjin.Core.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container.WP8\Endjin.Core.Container.WP8.csproj">
+      <Project>{DB3C3E66-CA3C-4265-8C98-47133E4E44B7}</Project>
+      <Name>Endjin.Core.Container.WP8</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container\Endjin.Core.Container.csproj">
+      <Project>{2742DBEE-7E63-4A8E-9D0B-32F3299D6999}</Project>
+      <Name>Endjin.Core.Container</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

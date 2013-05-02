@@ -39,15 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EndjinCoreCompositionNET40">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.3.0.0.199\lib\net40-full\EndjinCoreCompositionNET40.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreCompositionWebNet40">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.Web.2.0.0.4\lib\net40-full\EndjinCoreCompositionWebNet40.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainerNET40">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.3.0.0.199\lib\net40-full\EndjinCoreContainerNET40.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -155,6 +146,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Sample\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Endjin.Core.Composition.Net40\Endjin.Core.Composition.Net40.csproj">
+      <Project>{62954e9b-a7de-47b3-9b62-aacd2686ce73}</Project>
+      <Name>Endjin.Core.Composition.Net40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Composition.Web.Net40\Endjin.Core.Composition.Web.Net40.csproj">
+      <Project>{0a405ffe-22e3-4e54-ae4f-e17666f0ee14}</Project>
+      <Name>Endjin.Core.Composition.Web.Net40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container.Net40\Endjin.Core.Container.Net40.csproj">
+      <Project>{9c8a9c5e-c691-4fd8-8580-8bcb1675a2e8}</Project>
+      <Name>Endjin.Core.Container.Net40</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -39,22 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EndjinCoreComposition, Version=3.0.0.199, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.3.0.0.199\lib\Net45\EndjinCoreComposition.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreCompositionWebNet45, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.Web.2.0.0.4\lib\Net45\EndjinCoreCompositionWebNet45.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainer, Version=3.0.0.199, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.3.0.0.199\lib\Net45\EndjinCoreContainer.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainerNet45, Version=3.0.0.199, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.3.0.0.199\lib\Net45\EndjinCoreContainerNet45.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -158,6 +142,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Sample\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Endjin.Core.Composition.Web.Net45\Endjin.Core.Composition.Web.Net45.csproj">
+      <Project>{adea651e-c1ef-4437-a299-867631bac97b}</Project>
+      <Name>Endjin.Core.Composition.Web.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Composition\Endjin.Core.Composition.csproj">
+      <Project>{a7d96096-e0f7-4a9e-84d5-6842e7cf5804}</Project>
+      <Name>Endjin.Core.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container.Net45\Endjin.Core.Container.Net45.csproj">
+      <Project>{89e62caf-e3ea-41f2-ba54-426ad05f2269}</Project>
+      <Name>Endjin.Core.Container.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container\Endjin.Core.Container.csproj">
+      <Project>{2742dbee-7e63-4a8e-9d0b-32f3299d6999}</Project>
+      <Name>Endjin.Core.Container</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

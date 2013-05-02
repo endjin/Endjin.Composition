@@ -116,7 +116,6 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Endjin.Core.Composition.Samples.WinRT_TemporaryKey.pfx" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.png" />
@@ -139,18 +138,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EndjinCoreComposition, Version=3.0.0.199, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\NetCore45\EndjinCoreComposition.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\NetCore45\EndjinCoreContainer.dll</HintPath>
-    </Reference>
-    <Reference Include="EndjinCoreContainerWinRT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\NetCore45\EndjinCoreContainerWinRT.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Endjin.Core.Composition\Endjin.Core.Composition.csproj">
+      <Project>{a7d96096-e0f7-4a9e-84d5-6842e7cf5804}</Project>
+      <Name>Endjin.Core.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container.WinRT\Endjin.Core.Container.WinRT.csproj">
+      <Project>{b22c07ab-0cf9-4894-8257-dbda8f3aea59}</Project>
+      <Name>Endjin.Core.Container.WinRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container\Endjin.Core.Container.csproj">
+      <Project>{2742dbee-7e63-4a8e-9d0b-32f3299d6999}</Project>
+      <Name>Endjin.Core.Container</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
