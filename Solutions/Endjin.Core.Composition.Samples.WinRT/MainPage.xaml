@@ -1,5 +1,6 @@
 ﻿<Page
     x:Class="Endjin.Core.Composition.Samples.WinRT.MainPage"
+    x:Name="Main"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Endjin.Core.Composition.Samples.WinRT"
@@ -8,6 +9,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="{Binding Message}"></TextBlock>
+        <TextBlock Text="{Binding ElementName=Main, Path=Message}" FontSize="30"></TextBlock>
     </Grid>
 </Page>

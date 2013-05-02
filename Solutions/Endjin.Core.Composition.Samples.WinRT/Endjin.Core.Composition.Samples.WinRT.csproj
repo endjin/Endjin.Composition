@@ -139,14 +139,17 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EndjinCoreComposition">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.4\lib\NetCore45\EndjinCoreComposition.dll</HintPath>
+    <Reference Include="EndjinCoreComposition, Version=3.0.0.199, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\NetCore45\EndjinCoreComposition.dll</HintPath>
     </Reference>
-    <Reference Include="EndjinCoreContainer">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.4\lib\NetCore45\EndjinCoreContainer.dll</HintPath>
+    <Reference Include="EndjinCoreContainer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\NetCore45\EndjinCoreContainer.dll</HintPath>
     </Reference>
-    <Reference Include="EndjinCoreContainerWinRT">
-      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.4\lib\NetCore45\EndjinCoreContainerWinRT.dll</HintPath>
+    <Reference Include="EndjinCoreContainerWinRT, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\Endjin.Core.Composition.2.0.0.5\lib\NetCore45\EndjinCoreContainerWinRT.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
