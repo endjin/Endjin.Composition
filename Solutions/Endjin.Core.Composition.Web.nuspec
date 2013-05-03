@@ -13,10 +13,14 @@
 		<group targetFramework="net40-full">
 			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
 			<dependency id="Microsoft.AspNet.WebApi.Core" version="4.0.0.0" />
+			<dependency id="WebActivator" version="1.5.3.0" />
+			<dependency id="Microsoft.AspNet.Mvc" version="4.0.0.0" />
 		</group>
     <group targetFramework="Net45">
 			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
 			<dependency id="Microsoft.AspNet.WebApi.Core" version="4.0.0.0" />
+      <dependency id="WebActivator" version="1.5.3.0" />
+      <dependency id="Microsoft.AspNet.Mvc" version="4.0.0.0" />
 		</group>		
 	</dependencies>
   </metadata>
@@ -26,4 +30,7 @@
 	  <file src="EndjinCoreCompositionWebNet45.dll" target="lib\Net45\EndjinCoreCompositionWebNet45.dll" />
     <file src="EndjinCoreCompositionWebNet45.pdb" target="lib\Net45\EndjinCoreCompositionWebNet45.pdb" />
   </files>
+  <frameworkAssemblies>
+    <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
+  </frameworkAssemblies>
 </package>

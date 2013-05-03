@@ -112,13 +112,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ContainerConfig.cs" />
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Controllers\SampleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Installers\ControllerInstaller.cs" />
     <Compile Include="Installers\StorageInstaller.cs" />
     <Compile Include="Models\SampleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
-﻿namespace Endjin.Core.Composition.Samples.Net45.App_Start
+﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Endjin.Core.Configuration.ContainerConfig), "InitialiseContainer")]
+
+namespace Endjin.Core.Configuration
 {
     #region Using Directives
 
@@ -26,6 +28,7 @@
             try
             {
                 ApplicationServiceLocator.InitializeAsync(container, containerBootstrapper).Wait();
+                
 
                 // WebAPI
                 GlobalConfiguration.Configuration.DependencyResolver = new ContainerDependencyResolver(container);
