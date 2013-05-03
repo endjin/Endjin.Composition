@@ -23,6 +23,9 @@
       <dependency id="Microsoft.AspNet.Mvc" version="4.0.0.0" />
 		</group>		
 	</dependencies>
+  <frameworkAssemblies>
+    <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
+  </frameworkAssemblies>
   </metadata>
   <files>
     <file src="EndjinCoreCompositionWebNet40.dll" target="lib\net40-full\EndjinCoreCompositionWebNet40.dll" />
@@ -30,7 +33,4 @@
 	  <file src="EndjinCoreCompositionWebNet45.dll" target="lib\Net45\EndjinCoreCompositionWebNet45.dll" />
     <file src="EndjinCoreCompositionWebNet45.pdb" target="lib\Net45\EndjinCoreCompositionWebNet45.pdb" />
   </files>
-  <frameworkAssemblies>
-    <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
-  </frameworkAssemblies>
 </package>
