@@ -13,8 +13,6 @@
 
     sealed partial class App : Application
     {
-        private readonly IContainer container;
-
         public App()
         {
             this.InitializeComponent();
