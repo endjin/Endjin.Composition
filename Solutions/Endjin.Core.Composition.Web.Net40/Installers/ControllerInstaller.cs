@@ -15,7 +15,7 @@
 
             foreach (var assembly in assemblies)
             {
-                var controllers = assembly.GetExportedTypes().Where(x => typeof(IController).IsAssignableFrom(x) || typeof(IHttpController).IsAssignableFrom(x));
+                var controllers = assembly.GetExportedTypes().Where(x => !(x.IsGenericType && x.ContainsGenericParameters) && !x.IsAbstract && !x.IsInterface && (typeof(IController).IsAssignableFrom(x) || typeof(IHttpController).IsAssignableFrom(x)));
 
                 foreach (var current in controllers)
                 {
