@@ -33,7 +33,7 @@
 	<file src="EndjinCoreContainer.pdb" target="lib\portable-windows8+net45\EndjinCoreContainer.pdb" />
     <file src="EndjinCoreComposition.dll" target="lib\portable-windows8+net45\EndjinCoreComposition.dll" />
     <file src="EndjinCoreComposition.pdb" target="lib\portable-windows8+net45\EndjinCoreComposition.pdb" />
-    
+
 	<file src="EndjinCoreComposition.dll" target="lib\NetCore45\EndjinCoreComposition.dll" />
 	<file src="EndjinCoreComposition.pdb" target="lib\NetCore45\EndjinCoreComposition.pdb" />
 	<file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.dll" target="lib\NetCore45\EndjinCoreContainer.dll" />
@@ -54,6 +54,11 @@
     <file src="EndjinCoreComposition.dll" target="lib\portable-win+net45+wp8\EndjinCoreComposition.dll" />
     <file src="EndjinCoreComposition.pdb" target="lib\portable-win+net45+wp8\EndjinCoreComposition.pdb" />
 
+    <file src="EndjinCoreContainer.dll" target="lib\portable-win+net45+MonoAndroid16+MonoTouch40+wp80\EndjinCoreContainer.dll" />
+    <file src="EndjinCoreContainer.pdb" target="lib\portable-win+net45+MonoAndroid16+MonoTouch40+wp80\EndjinCoreContainer.pdb" />
+    <file src="EndjinCoreComposition.dll" target="lib\portable-win+net45+MonoAndroid16+MonoTouch40+wp80\EndjinCoreComposition.dll" />
+    <file src="EndjinCoreComposition.pdb" target="lib\portable-win+net45+MonoAndroid16+MonoTouch40+wp80\EndjinCoreComposition.pdb" />
+    
     <file src="EndjinCoreContainer.dll" target="lib\monoandroid16\EndjinCoreContainer.dll" />
     <file src="EndjinCoreContainer.pdb" target="lib\monoandroid16\EndjinCoreContainer.pdb" />
     <file src="EndjinCoreComposition.dll" target="lib\monoandroid16\EndjinCoreComposition.dll" />
