@@ -6,13 +6,23 @@
 
     public interface IContainer
     {
+        bool HasComponent<T>();
+
+        bool HasComponent(Type type);
+
         Task InstallAsync(IBootstrapper bootstrapper);
 
-        void Shutdown();
+        void Register(IEnumerable<ComponentRegistration> registrations);
 
         T Resolve<T>();
 
         T Resolve<T>(Type type);
+
+        T Resolve<T>(string name);
+
+        object Resolve(string name);
+
+        object Resolve(Type type);
 
         IEnumerable<T> ResolveAll<T>();
 
@@ -22,20 +32,14 @@
 
         IEnumerable<object> ResolveAll(Type type, string name);
 
-        T Resolve<T>(string name);
-
-        object Resolve(string name);
-
-        object Resolve(Type type);
-
-        void Register(IEnumerable<ComponentRegistration> registrations);
+        void Shutdown();
 
         T TryResolve<T>();
 
+        T TryResolve<T>(string name);
+
         object TryResolve(Type type);
 
-        bool HasComponent<T>();
-
-        bool HasComponent(Type type);
+        object TryResolve(Type type, string name);
     }
 }
