@@ -37,11 +37,6 @@
             return types.Where(t => t.ComponentType.Namespace.Contains(partialNamespace));
         }
 
-        public static IEnumerable<ComponentRegistration> WhereHasInterface(this IEnumerable<ComponentRegistration> types)
-        {
-            return types.Where(t => t.ComponentType.GetTypeInfo().GetInterfaces().Any());
-        }
-
         public static IEnumerable<ComponentRegistration> WhereNamespaceStartsWith(this IEnumerable<ComponentRegistration> types, string partialNamespace)
         {
             return types.Where(t => t.ComponentType.Namespace.StartsWith(partialNamespace));
