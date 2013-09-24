@@ -42,8 +42,8 @@
     
 	  <file src="EndjinCoreComposition.dll" target="lib\NetCore45\EndjinCoreComposition.dll" />
 	  <file src="EndjinCoreComposition.pdb" target="lib\NetCore45\EndjinCoreComposition.pdb" />
-    <file src="EndjinCoreCompositionWinRT.dll" target="lib\NetCore45\EndjinCoreCompositionWinRT.dll" />
-    <file src="EndjinCoreCompositionWinRT.pdb" target="lib\NetCore45\EndjinCoreCompositionWinRT.pdb" />
+    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.dll" target="lib\NetCore45\EndjinCoreCompositionWinRT.dll" />
+    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.pdb" target="lib\NetCore45\EndjinCoreCompositionWinRT.pdb" />
 	  <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.dll" target="lib\NetCore45\EndjinCoreContainer.dll" />
 	  <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.pdb" target="lib\NetCore45\EndjinCoreContainer.pdb" />
     <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.dll" target="lib\NetCore45\EndjinCoreContainerWinRT.dll" />
