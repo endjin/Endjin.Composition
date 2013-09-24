@@ -42,9 +42,6 @@
     <Compile Include="..\Endjin.Core.Container.Net45\Container\AssemblyHelpers.cs">
       <Link>Container\AssemblyHelpers.cs</Link>
     </Compile>
-    <Compile Include="..\Endjin.Core.Container.Net45\Container\DesktopBootstrapper.cs">
-      <Link>Container\DesktopBootstrapper.cs</Link>
-    </Compile>
     <Compile Include="..\Endjin.Core.Container\Container\Component.cs">
       <Link>Container\Component.cs</Link>
     </Compile>

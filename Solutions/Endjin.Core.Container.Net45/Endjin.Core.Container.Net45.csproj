@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Container\AssemblyHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Container\DesktopBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Endjin.Core.Container\Endjin.Core.Container.csproj">

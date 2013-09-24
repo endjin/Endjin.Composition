@@ -10,5 +10,6 @@
     public interface IBootstrapper
     {
         Task<IEnumerable<IInstaller>> GetInstallersAsync();
+        Task RegisterResourcesAsync();
     }
 }

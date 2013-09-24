@@ -85,7 +85,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Container\AssemblyHelpers.cs" />
-    <Compile Include="Container\Wp8Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

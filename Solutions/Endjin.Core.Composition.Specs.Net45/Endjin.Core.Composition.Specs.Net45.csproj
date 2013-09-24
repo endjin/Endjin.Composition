@@ -100,6 +100,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Endjin.Core.Composition.Net45\Endjin.Core.Composition.Net45.csproj">
+      <Project>{c290e269-e6f3-4494-a07f-7019364232a4}</Project>
+      <Name>Endjin.Core.Composition.Net45</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Endjin.Core.Composition\Endjin.Core.Composition.csproj">
       <Project>{a7d96096-e0f7-4a9e-84d5-6842e7cf5804}</Project>
       <Name>Endjin.Core.Composition</Name>
