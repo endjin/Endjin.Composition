@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
 
     public static class TypeDictionaryExtensions
@@ -17,6 +18,8 @@
             {
                 throw new ArgumentNullException("key");
             }
+
+            Debug.WriteLine("Key: {0}", key.FullName);
 
             var matchingDictionaryItem = dictionary.FirstOrDefault(x => x.Key.FullName == key.FullName);
 

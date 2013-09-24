@@ -12,28 +12,32 @@
 
     public class Container : IContainer
     {
+        private readonly List<ComponentRegistration> allRegistrations = new List<ComponentRegistration>();
+
         private readonly Dictionary<Type, List<ComponentRegistration>> componentsByType = new Dictionary<Type, List<ComponentRegistration>>();
         private readonly Dictionary<string, List<ComponentRegistration>> componentsByName = new Dictionary<string, List<ComponentRegistration>>();
-        private readonly List<ComponentRegistration> allRegistrations = new List<ComponentRegistration>();
-        private readonly Dictionary<Type, object> singletons = new Dictionary<Type, object>();
-        private readonly List<ComponentRegistration> misconfiguredComponents = new List<ComponentRegistration>();
-        private readonly ReaderWriterLockSlim singletonLock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
 
         private bool isInstalling;
 
-        public IEnumerable<KeyValuePair<Type, List<ComponentRegistration>>> ComponentsByType
-        {
-            get
-            {
-                return this.componentsByType;
-            }
-        }
+        private readonly List<ComponentRegistration> misconfiguredComponents = new List<ComponentRegistration>();
+
+        private readonly ReaderWriterLockSlim singletonLock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+
+        private readonly Dictionary<Type, object> singletons = new Dictionary<Type, object>();
 
         public IEnumerable<KeyValuePair<string, List<ComponentRegistration>>> ComponentsByName
         {
             get
             {
                 return this.componentsByName;
+            }
+        }
+
+        public IEnumerable<KeyValuePair<Type, List<ComponentRegistration>>> ComponentsByType
+        {
+            get
+            {
+                return this.componentsByType;
             }
         }
 
@@ -45,6 +49,17 @@
             }
         }
 
+        public bool HasComponent<T>()
+        {
+            return this.HasComponent(typeof(T));
+        }
+
+        public bool HasComponent(Type type)
+        {
+            var registration = this.GetComponentRegistrationFor(type);
+            return registration != null;
+        }
+
 #if NET40
         public Task InstallAsync(IBootstrapper bootstrapper)
         {
@@ -52,16 +67,16 @@
 
             return Task.Factory.StartNew(
                 () =>
+                {
+
+                    var installers = bootstrapper.GetInstallersAsync().Result;
+                    foreach (var installer in installers)
                     {
+                        installer.Install(this);
+                    }
 
-                        var installers = bootstrapper.GetInstallersAsync().Result;
-                        foreach (var installer in installers)
-                        {
-                            installer.Install(this);
-                        }
-
-                        this.FindConstructors(this.allRegistrations);
-                    }).ContinueWith(t => this.isInstalling = false);
+                    this.FindConstructors(this.allRegistrations);
+                }).ContinueWith(t => this.isInstalling = false);
         }
 #else
         public async Task InstallAsync(IBootstrapper bootstrapper)
@@ -84,68 +99,21 @@
             this.FindConstructors(this.allRegistrations);
         }
 #endif
-     
-        public void Shutdown()
-        {
-            singletonLock.EnterWriteLock();
 
-            try
+        public void Register(IEnumerable<ComponentRegistration> registrations)
+        {
+            var componentRegistrations = registrations as List<ComponentRegistration> ?? registrations.ToList();
+            this.PerformInitialRegistration(componentRegistrations);
+
+            if (!this.isInstalling)
             {
-                var disposables = new HashSet<IDisposable>();
-
-                foreach (var component in this.singletons.Values.Where(s => s is IDisposable).Cast<IDisposable>())
-                {
-                    DisposeSafely(disposables, component);
-                }
-
-                foreach (var component in this.allRegistrations.Where(s => s.ComponentInstance is IDisposable).Select(s => s.ComponentInstance).Cast<IDisposable>())
-                {
-                    DisposeSafely(disposables, component);
-                }
-
-                this.allRegistrations.Clear();
-                this.componentsByName.Clear();
-                this.componentsByType.Clear();
-                this.singletons.Clear();
+                this.FindConstructors(this.allRegistrations);
             }
-            finally
-            {
-                singletonLock.ExitWriteLock();
-            }
-        }
-
-        public bool HasComponent<T>()
-        {
-            return this.HasComponent(typeof(T));
-        }
-
-        public bool HasComponent(Type type)
-        {
-            var registration = this.GetComponentRegistrationFor(type);
-            return registration != null;
         }
 
         public T Resolve<T>()
         {
             return (T)this.Resolve(typeof(T));
-        }
-
-        public T TryResolve<T>()
-        {
-            return (T)this.TryResolve(typeof(T));
-        }
-
-        public object TryResolve(Type type)
-        {
-            var error = new ResolutionTreeNode { Component = "root", Children = new List<ResolutionTreeNode>() };
-            var result = this.ResolveCore(type, error);
-
-            if (error.IsInError)
-            {
-                return null;
-            }
-
-            return result;
         }
 
         public T Resolve<T>(Type type)
@@ -217,36 +185,84 @@
             return result;
         }
 
-        public void Register(IEnumerable<ComponentRegistration> registrations)
+        public void Shutdown()
         {
-            var componentRegistrations = registrations as List<ComponentRegistration> ?? registrations.ToList();
-            this.PerformInitialRegistration(componentRegistrations);
+            this.singletonLock.EnterWriteLock();
 
-            if (!this.isInstalling)
+            try
             {
-                this.FindConstructors(this.allRegistrations);
+                var disposables = new HashSet<IDisposable>();
+
+                foreach (var component in this.singletons.Values.Where(s => s is IDisposable).Cast<IDisposable>())
+                {
+                    DisposeSafely(disposables, component);
+                }
+
+                foreach (var component in this.allRegistrations.Where(s => s.ComponentInstance is IDisposable).Select(s => s.ComponentInstance).Cast<IDisposable>())
+                {
+                    DisposeSafely(disposables, component);
+                }
+
+                this.allRegistrations.Clear();
+                this.componentsByName.Clear();
+                this.componentsByType.Clear();
+                this.singletons.Clear();
+            }
+            finally
+            {
+                this.singletonLock.ExitWriteLock();
             }
         }
 
-        private static void DisposeSafely(ISet<IDisposable> disposables, IDisposable component)
+        public T TryResolve<T>()
         {
-            if (!disposables.Contains(component))
-            {
-                component.Dispose();
-                disposables.Add(component);
-            }
+            return (T)this.TryResolve(typeof(T));
         }
 
-        private static List<ComponentRegistration> EnsureRegistrations<T>(IDictionary<T, List<ComponentRegistration>> dictionary, T key)
+        public T TryResolve<T>(string name)
         {
-            List<ComponentRegistration> result;
-            if (!dictionary.TryGetValue(key, out result))
+            return (T)this.TryResolve(typeof(T), name);
+        }
+
+        public object TryResolve(Type type)
+        {
+            var error = new ResolutionTreeNode { Component = "root", Children = new List<ResolutionTreeNode>() };
+            var result = this.ResolveCore(type, error);
+
+            if (error.IsInError)
             {
-                result = new List<ComponentRegistration>();
-                dictionary.Add(key, result);
+                return null;
             }
 
             return result;
+        }
+
+        public object TryResolve(Type type, string name)
+        {
+            var error = new ResolutionTreeNode { Component = "root", Children = new List<ResolutionTreeNode>() };
+            var result = this.ResolveCore(type, error, name);
+
+            if (error.IsInError)
+            {
+                return null;
+            }
+
+            return result;
+        }
+
+        private void AddByType(ComponentRegistration registration)
+        {
+            foreach (var type in registration.RegistrationTypes)
+            {
+                var registrations = this.EnsureTypeRegistrations(type);
+                registrations.Add(registration);
+            }
+        }
+
+        private void AddByName(ComponentRegistration registration)
+        {
+            var registrations = this.EnsureNameRegistrations(registration.Name ?? registration.ComponentType.Name);
+            registrations.Add(registration);
         }
 
         private static void AddTabs(StringBuilder str, int tabs)
@@ -287,16 +303,88 @@
             }
         }
 
-        private object ResolveCore(Type type, ResolutionTreeNode parentTreeNode)
+        private bool CanResolve(ParameterInfo parameter)
         {
-            var componentRegistration = this.GetComponentRegistrationFor(type);
-            return this.GetInstanceFor(componentRegistration, type.Name, parentTreeNode);
+            return this.GetComponentRegistrationFor(parameter.ParameterType) != null;
         }
 
-        private IEnumerable<object> GetInstancesFor(IEnumerable<ComponentRegistration> registrations)
+        private object CreateInstanceFor(ComponentRegistration registration, ResolutionTreeNode parentTreeNode)
         {
-            var parentError = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
-            return (from r in registrations select this.GetInstanceFor(r, r.ComponentType.Name, parentError)).Where(o => o != null).ToArray();
+            if (registration.PreferredConstructor == null)
+            {
+                parentTreeNode.Children.Add(new ResolutionTreeNode { Component = registration.ComponentType.Name, IsInError = true, Children = new List<ResolutionTreeNode>()});
+                parentTreeNode.IsInError = true;
+                return null;
+            }
+
+            var parameters = registration.PreferredConstructor.Parameters.Select(p => this.ResolveCore(p.ParameterType, parentTreeNode)).ToArray();
+
+            if (parentTreeNode.IsInError)
+            {
+                return null;
+            }
+
+            return Activator.CreateInstance(registration.ComponentType, parameters);
+        }
+
+        private static void DisposeSafely(ISet<IDisposable> disposables, IDisposable component)
+        {
+            if (!disposables.Contains(component))
+            {
+                component.Dispose();
+                disposables.Add(component);
+            }
+        }
+
+        private List<ComponentRegistration> EnsureNameRegistrations(string name)
+        {
+            return EnsureRegistrations(this.componentsByName, name);
+        }
+
+        private static List<ComponentRegistration> EnsureRegistrations<T>(IDictionary<T, List<ComponentRegistration>> dictionary, T key)
+        {
+            List<ComponentRegistration> result;
+            if (!dictionary.TryGetValue(key, out result))
+            {
+                result = new List<ComponentRegistration>();
+                dictionary.Add(key, result);
+            }
+
+            return result;
+        }
+
+        private List<ComponentRegistration> EnsureTypeRegistrations(Type type)
+        {
+            return EnsureRegistrations(this.componentsByType, type);
+        }
+
+        private void FindConstructors(IEnumerable<ComponentRegistration> registrations)
+        {
+            this.misconfiguredComponents.Clear();
+
+            foreach (var registration in registrations)
+            {
+                var constructorRegistrations = registration.ComponentType.GetTypeInfo().GetConstructors().Select(c => new ConstructorRegistration { Constructor = c, Parameters = c.GetParameters() }).OrderByDescending(r => r.Parameters.Length);
+                var resolvedConstructor = constructorRegistrations.FirstOrDefault(this.ResolveConstructor);
+                if (resolvedConstructor != null)
+                {
+                    registration.PreferredConstructor = resolvedConstructor;
+                    registration.Error = string.Empty;
+
+                    if (this.misconfiguredComponents.Contains(registration))
+                    {
+                        this.misconfiguredComponents.Remove(registration);
+                    }
+                }
+                else
+                {
+                    registration.PreferredConstructor = constructorRegistrations.FirstOrDefault();
+                    var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
+                    this.GetInstanceFor(registration, registration.ComponentType.Name, error);
+                    registration.Error = this.BuildMessage(error);
+                    this.misconfiguredComponents.Add(registration);
+                }
+            }
         }
 
         private object GetInstanceFor(ComponentRegistration registration, string name, ResolutionTreeNode parentTreesNode)
@@ -352,63 +440,10 @@
             return instance;
         }
 
-        private object CreateInstanceFor(ComponentRegistration registration, ResolutionTreeNode parentTreeNode)
+        private IEnumerable<object> GetInstancesFor(IEnumerable<ComponentRegistration> registrations)
         {
-            if (registration.PreferredConstructor == null)
-            {
-                parentTreeNode.Children.Add(new ResolutionTreeNode { Component = registration.ComponentType.Name, IsInError = true, Children = new List<ResolutionTreeNode>()});
-                parentTreeNode.IsInError = true;
-                return null;
-            }
-
-            var parameters = registration.PreferredConstructor.Parameters.Select(p => this.ResolveCore(p.ParameterType, parentTreeNode)).ToArray();
-
-            if (parentTreeNode.IsInError)
-            {
-                return null;
-            }
-
-            return Activator.CreateInstance(registration.ComponentType, parameters);
-        }
-
-        private void FindConstructors(IEnumerable<ComponentRegistration> registrations)
-        {
-            this.misconfiguredComponents.Clear();
-
-            foreach (var registration in registrations)
-            {
-                var constructorRegistrations = registration.ComponentType.GetTypeInfo().GetConstructors().Select(c => new ConstructorRegistration { Constructor = c, Parameters = c.GetParameters() }).OrderByDescending(r => r.Parameters.Length);
-                var resolvedConstructor = constructorRegistrations.FirstOrDefault(this.ResolveConstructor);
-                if (resolvedConstructor != null)
-                {
-                    registration.PreferredConstructor = resolvedConstructor;
-                    registration.Error = string.Empty;
-
-                    if (this.misconfiguredComponents.Contains(registration))
-                    {
-                        this.misconfiguredComponents.Remove(registration);
-                    }
-                }
-                else
-                {
-                    registration.PreferredConstructor = constructorRegistrations.FirstOrDefault();
-                    var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
-                    this.GetInstanceFor(registration, registration.ComponentType.Name, error);
-                    registration.Error = this.BuildMessage(error);
-                    this.misconfiguredComponents.Add(registration);
-                }
-            }
-        }
-
-        private bool ResolveConstructor(ConstructorRegistration constructor)
-        {
-            var parameters = constructor.Parameters;
-            return parameters.Length == 0 || parameters.All(this.CanResolve);
-        }
-
-        private bool CanResolve(ParameterInfo parameter)
-        {
-            return this.GetComponentRegistrationFor(parameter.ParameterType) != null;
+            var parentError = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
+            return (from r in registrations select this.GetInstanceFor(r, r.ComponentType.Name, parentError)).Where(o => o != null).ToArray();
         }
 
         private ComponentRegistration GetComponentRegistrationFor(Type parameterType)
@@ -486,29 +521,22 @@
             }
         }
 
-        private void AddByType(ComponentRegistration registration)
+        private bool ResolveConstructor(ConstructorRegistration constructor)
         {
-            foreach (var type in registration.RegistrationTypes)
-            {
-                var registrations = this.EnsureTypeRegistrations(type);
-                registrations.Add(registration);
-            }
+            var parameters = constructor.Parameters;
+            return parameters.Length == 0 || parameters.All(this.CanResolve);
         }
 
-        private void AddByName(ComponentRegistration registration)
+        private object ResolveCore(Type type, ResolutionTreeNode parentTreeNode)
         {
-            var registrations = this.EnsureNameRegistrations(registration.Name ?? registration.ComponentType.Name);
-            registrations.Add(registration);
+            var componentRegistration = this.GetComponentRegistrationFor(type);
+            return this.GetInstanceFor(componentRegistration, type.Name, parentTreeNode);
         }
 
-        private List<ComponentRegistration> EnsureTypeRegistrations(Type type)
+        private object ResolveCore(Type type, ResolutionTreeNode parentTreeNode, string name)
         {
-            return EnsureRegistrations(this.componentsByType, type);
-        }
-
-        private List<ComponentRegistration> EnsureNameRegistrations(string name)
-        {
-            return EnsureRegistrations(this.componentsByName, name);
+            var componentRegistration = this.GetComponentRegistrationFor(type, name);
+            return this.GetInstanceFor(componentRegistration, type.Name, parentTreeNode);
         }
     }
 }
