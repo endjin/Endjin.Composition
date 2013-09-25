@@ -1,5 +1,6 @@
 ﻿namespace Endjin.Core.ResourceRegistration
 {
+    using System.Diagnostics;
     using System.Linq;
     using Endjin.Core.Installers;
     using Endjin.Core.ResourceRegistration.Contracts;
@@ -49,7 +50,14 @@
 
         public bool ResourceDirectoryExists(string root)
         {
-            return registrations.Keys.Any(k => GetPathRoot(k) == root.ToLowerInvariant());
+            
+            return registrations.Keys.Any(k =>
+            {
+                string pathRoot = GetPathRoot(k);
+                string lowerInvariant = root.ToLowerInvariant();
+                Debug.WriteLine("{0}, {1}", pathRoot, lowerInvariant);
+                return pathRoot == lowerInvariant;
+            });
         }
 
         private string GetPathRoot(string path)
