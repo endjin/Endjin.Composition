@@ -1,6 +1,8 @@
 ﻿namespace Endjin.Core.ResourceRegistration
 {
+    using System;
     using System.Diagnostics;
+    using System.Globalization;
     using System.Linq;
     using Endjin.Core.Installers;
     using Endjin.Core.ResourceRegistration.Contracts;
@@ -50,19 +52,12 @@
 
         public bool ResourceDirectoryExists(string root)
         {
-            
-            return registrations.Keys.Any(k =>
-            {
-                string pathRoot = GetPathRoot(k);
-                string lowerInvariant = root.ToLowerInvariant();
-                Debug.WriteLine("{0}, {1}", pathRoot, lowerInvariant);
-                return pathRoot == lowerInvariant;
-            });
+            return registrations.Keys.Any(k => GetPathRoot(k).Equals(root, StringComparison.CurrentCultureIgnoreCase));
         }
 
         private string GetPathRoot(string path)
         {
-            return path.Substring(path.LastIndexOf('/') + 1).ToLowerInvariant();
+            return path.Substring(path.LastIndexOf('/') + 1);
         }
 
         private void RegisterCollision(string name, ResourceRegistration registration)
