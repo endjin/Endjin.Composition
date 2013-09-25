@@ -1,5 +1,6 @@
 ﻿namespace Endjin.Core.ResourceRegistration
 {
+    using System.Linq;
     using Endjin.Core.Installers;
     using Endjin.Core.ResourceRegistration.Contracts;
     using System.Collections.Generic;
@@ -40,6 +41,16 @@
         {
             return registrations.ContainsKey(name);
         }
+
+        public IEnumerable<string> GetResourcesAt(string root)
+        {
+            return registrations.Keys.Where(k => k.StartsWith(root));
+        }
+
+        public bool ResourceDirectoryExists(string root)
+        {
+            return registrations.Keys.Any(k => k.StartsWith(root));
+        }        
 
         private void RegisterCollision(string name, ResourceRegistration registration)
         {
