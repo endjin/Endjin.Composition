@@ -8,5 +8,7 @@ namespace Endjin.Core.ResourceRegistration.Contracts
     {
         void RegisterResource(string name, Assembly assembly, string resourceKey);
         Stream GetResource(string name);
+
+        bool ResourceExists(string name);
     }
 }

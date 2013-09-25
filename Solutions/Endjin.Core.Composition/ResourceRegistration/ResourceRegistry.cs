@@ -36,6 +36,11 @@
             return registration.Assembly.GetManifestResourceStream(registration.Name);
         }
 
+        public bool ResourceExists(string name)
+        {
+            return registrations.ContainsKey(name);
+        }
+
         private void RegisterCollision(string name, ResourceRegistration registration)
         {
             // We maintain an internal list of resource collisions for debugging purposes.
