@@ -54,7 +54,7 @@
 
         private string GetPathRoot(string path)
         {
-            return path.Substring(path.LastIndexOf('/')).ToLowerInvariant();
+            return path.Substring(path.LastIndexOf('/') + 1).ToLowerInvariant();
         }
 
         private void RegisterCollision(string name, ResourceRegistration registration)
