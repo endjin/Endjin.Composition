@@ -47,17 +47,12 @@
 
         public IEnumerable<string> GetResourcesAt(string root)
         {
-            return registrations.Keys.Where(k => GetPathRoot(k) == root.ToLowerInvariant());
+            return registrations.Keys.Where(k => k.ToLowerInvariant().StartsWith(root.ToLowerInvariant()));
         }
 
         public bool ResourceDirectoryExists(string root)
         {
-            return registrations.Keys.Any(k => GetPathRoot(k).Equals(root, StringComparison.CurrentCultureIgnoreCase));
-        }
-
-        private string GetPathRoot(string path)
-        {
-            return path.Substring(0, path.LastIndexOf('/') + 1);
+            return registrations.Keys.Any(k => k.ToLowerInvariant().StartsWith(root.ToLowerInvariant()));
         }
 
         private void RegisterCollision(string name, ResourceRegistration registration)
