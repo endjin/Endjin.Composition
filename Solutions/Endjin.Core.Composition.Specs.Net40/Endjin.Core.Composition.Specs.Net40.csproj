@@ -73,12 +73,6 @@
     <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs">
       <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs</Link>
     </Compile>
-    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_and_a_bootstrapper.cs">
-      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_and_a_bootstrapper.cs</Link>
-    </Compile>
-    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_but_no_bootstrapper.cs">
-      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_but_no_bootstrapper.cs</Link>
-    </Compile>
     <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs">
       <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs</Link>
     </Compile>

@@ -47,6 +47,7 @@
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="Installers\ContainerInstaller.cs" />
+    <Compile Include="Installers\ResourceRegistryInstaller.cs" />
     <Compile Include="Installers\TransientAttribute.cs" />
     <Compile Include="Installers\InstallerBase.cs" />
     <Compile Include="Installers\NamedTypeInstallerBase.cs" />
@@ -54,6 +55,10 @@
     <Compile Include="Installers\SingletonAttribute.cs" />
     <Compile Include="Installers\SuffixInstallerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceRegistration\Contracts\IResourceRegistrar.cs" />
+    <Compile Include="ResourceRegistration\Contracts\IResourceRegistry.cs" />
+    <Compile Include="ResourceRegistration\Installers\ResourceRegistrarInstallerBase.cs" />
+    <Compile Include="ResourceRegistration\ResourceRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ExceptionMessages.resx">

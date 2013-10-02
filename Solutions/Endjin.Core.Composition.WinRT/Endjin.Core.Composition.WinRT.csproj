@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B22C07AB-0CF9-4894-8257-DBDA8F3AEA59}</ProjectGuid>
+    <ProjectGuid>{7084EBA6-663A-4410-B9C6-31A23B898384}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Endjin.Core</RootNamespace>
-    <AssemblyName>EndjinCoreContainerWinRT</AssemblyName>
-    <DefaultLanguage>en</DefaultLanguage>
+    <AssemblyName>EndjinCoreCompositionWinRT</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
@@ -99,21 +101,26 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Container\AssemblyHelpers.cs" />
-    <Compile Include="ExceptionMessages.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="strings\en\ExceptionMessages.resw" />
-  </ItemGroup>
-  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\Endjin.Core.Composition\Endjin.Core.Composition.csproj">
+      <Project>{a7d96096-e0f7-4a9e-84d5-6842e7cf5804}</Project>
+      <Name>Endjin.Core.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Endjin.Core.Container.WinRT\Endjin.Core.Container.WinRT.csproj">
+      <Project>{b22c07ab-0cf9-4894-8257-dbda8f3aea59}</Project>
+      <Name>Endjin.Core.Container.WinRT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Endjin.Core.Container\Endjin.Core.Container.csproj">
       <Project>{2742dbee-7e63-4a8e-9d0b-32f3299d6999}</Project>
       <Name>Endjin.Core.Container</Name>
     </ProjectReference>
   </ItemGroup>
-  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
-    <VisualStudioVersion>11.0</VisualStudioVersion>
+  <ItemGroup>
+    <Compile Include="Container\WinRTBootstrapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

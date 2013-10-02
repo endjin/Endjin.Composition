@@ -138,6 +138,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Endjin.Core.Composition.WinRT\Endjin.Core.Composition.WinRT.csproj">
+      <Project>{7084eba6-663a-4410-b9c6-31a23b898384}</Project>
+      <Name>Endjin.Core.Composition.WinRT</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Endjin.Core.Composition\Endjin.Core.Composition.csproj">
       <Project>{a7d96096-e0f7-4a9e-84d5-6842e7cf5804}</Project>
       <Name>Endjin.Core.Composition</Name>

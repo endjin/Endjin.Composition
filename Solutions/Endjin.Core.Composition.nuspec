@@ -3,13 +3,17 @@
   <metadata>
     <version>2.0.0.0</version>
     <authors>Endjin</authors>
-    <owners />
+    <owners>Endjin</owners>
+    <projectUrl>https://github.com/endjin/Endjin.Core.Composition-V2</projectUrl>
     <id>Endjin.Core.Composition</id>
     <title>Endjin Composition Framework</title>
     <tags>endjin DependencyInjection DI InversionOfControl IoC Composition</tags>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple. This framework supports .NET 4.0, .NET 4.5, WinRT and WP8.</description>
+    <summary>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple. This framework supports .NET 4.0, .NET 4.5, WinRT and WP8.</summary>
     <iconUrl>https://raw.github.com/endjin/Endjin.Core.Composition-V2/master/Assets/Composition.png</iconUrl>
+    <copyright>Endjin 2013</copyright>
+    <language>en-GB</language>
   </metadata>
   <files>
     <file src="EndjinCoreContainerNet40.dll" target="lib\net40-client\EndjinCoreContainerNET40.dll" />
@@ -26,6 +30,8 @@
     <file src="EndjinCoreContainer.pdb" target="lib\Net45\EndjinCoreContainer.pdb" />
     <file src="EndjinCoreComposition.dll" target="lib\Net45\EndjinCoreComposition.dll" />
     <file src="EndjinCoreComposition.pdb" target="lib\Net45\EndjinCoreComposition.pdb" />
+    <file src="EndjinCoreCompositionNet45.dll" target="lib\Net45\EndjinCoreCompositionNet45.dll" />
+    <file src="EndjinCoreCompositionNet45.pdb" target="lib\Net45\EndjinCoreCompositionNet45.pdb" />
     <file src="EndjinCoreContainerNet45.dll" target="lib\Net45\EndjinCoreContainerNet45.dll" />
     <file src="EndjinCoreContainerNet45.pdb" target="lib\Net45\EndjinCoreContainerNet45.pdb" />
 
@@ -36,6 +42,8 @@
 
     <file src="EndjinCoreComposition.dll" target="lib\windows8\EndjinCoreComposition.dll" />
     <file src="EndjinCoreComposition.pdb" target="lib\windows8\EndjinCoreComposition.pdb" />
+    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.dll" target="lib\windows8\EndjinCoreCompositionWinRT.dll" />
+    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.pdb" target="lib\windows8\EndjinCoreCompositionWinRT.pdb" />
     <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.dll" target="lib\windows8\EndjinCoreContainer.dll" />
     <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.pdb" target="lib\windows8\EndjinCoreContainer.pdb" />
     <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.dll" target="lib\windows8\EndjinCoreContainerWinRT.dll" />
@@ -46,6 +54,8 @@
     <file src="EndjinCoreContainer.pdb" target="lib\WP8\EndjinCoreContainer.pdb" />
     <file src="EndjinCoreComposition.dll" target="lib\WP8\EndjinCoreComposition.dll" />
     <file src="EndjinCoreComposition.pdb" target="lib\WP8\EndjinCoreComposition.pdb" />
+    <file src="EndjinCoreCompositionWP8.dll" target="lib\WP8\EndjinCoreCompositionWP8.dll" />
+    <file src="EndjinCoreCompositionWP8.pdb" target="lib\WP8\EndjinCoreCompositionWP8.pdb" />
     <file src="EndjinCoreContainerWP8.dll" target="lib\WP8\EndjinCoreContainerWP8.dll" />
     <file src="EndjinCoreContainerWP8.pdb" target="lib\WP8\EndjinCoreContainerWP8.pdb" />
 

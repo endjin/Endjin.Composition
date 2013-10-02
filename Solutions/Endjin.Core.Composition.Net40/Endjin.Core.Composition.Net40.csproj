@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Endjin.Core.Composition.Net45\Container\DesktopBootstrapper.cs">
+      <Link>Container\DesktopBootstrapper.cs</Link>
+    </Compile>
     <Compile Include="..\Endjin.Core.Composition\Composition\ApplicationServiceLocator.cs">
       <Link>Composition\ApplicationServiceLocator.cs</Link>
     </Compile>
@@ -84,7 +87,20 @@
     <Compile Include="..\Endjin.Core.Composition\Installers\TransientAttribute.cs">
       <Link>Installers\TransientAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\endjin.core.composition\resourceregistration\contracts\IResourceRegistrar.cs">
+      <Link>ResourceRegistration\Contracts\IResourceRegistrar.cs</Link>
+    </Compile>
+    <Compile Include="..\endjin.core.composition\resourceregistration\contracts\IResourceRegistry.cs">
+      <Link>ResourceRegistration\Contracts\IResourceRegistry.cs</Link>
+    </Compile>
+    <Compile Include="..\endjin.core.composition\resourceregistration\installers\ResourceRegistrarInstallerBase.cs">
+      <Link>ResourceRegistration\Installers\ResourceRegistrarInstallerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\endjin.core.composition\resourceregistration\ResourceRegistry.cs">
+      <Link>ResourceRegistration\ResourceRegistry.cs</Link>
+    </Compile>
     <Compile Include="Installers\NamedTypeInstallerBase.cs" />
+    <Compile Include="Installers\ResourceRegistryInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
