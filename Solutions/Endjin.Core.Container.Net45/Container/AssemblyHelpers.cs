@@ -1,6 +1,6 @@
 ﻿namespace Endjin.Core.Container
 {
-    #region Using statements
+    #region Using Directives
 
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,7 @@
         {
             var allAssemblies = Directory.GetFiles(path, "*.dll").Select(TryLoadAssembly).Where(a => a != null).ToList();
             allAssemblies.AddRange(Directory.GetFiles(path, "*.exe").Select(TryLoadAssembly).Where(a => a != null));
+            
             return allAssemblies;
         }
 
