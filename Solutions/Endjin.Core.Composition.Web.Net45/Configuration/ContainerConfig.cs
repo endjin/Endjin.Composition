@@ -34,7 +34,9 @@ namespace Endjin.Core.Configuration
                 GlobalConfiguration.Configuration.DependencyResolver = new ContainerDependencyResolver(container);
 
                 // MVC
-                DependencyResolver.SetResolver(new MvcContainerDependencyResolver(container));
+                DependencyResolver.SetResolver(
+                    x => container.HasComponent(x) ? container.Resolve(x) : null,
+                    x => container.HasComponent(x) ? container.ResolveAll(x) : new object[0]);
             }
             catch (Exception exception)
             {

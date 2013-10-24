@@ -94,7 +94,6 @@
     <Compile Include="Configuration\ContainerConfig.cs" />
     <Compile Include="DependencyResolver\ContainerDependencyResolver.cs" />
     <Compile Include="DependencyResolver\ContainerDependencyScope.cs" />
-    <Compile Include="DependencyResolver\MvcContainerDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
