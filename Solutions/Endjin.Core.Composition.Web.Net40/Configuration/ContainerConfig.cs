@@ -28,7 +28,7 @@ namespace Endjin.Core.Configuration
             try
             {
                 ApplicationServiceLocator.InitializeAsync(container, containerBootstrapper).Wait();
-                
+
 
                 // WebAPI
                 GlobalConfiguration.Configuration.DependencyResolver = new ContainerDependencyResolver(container);

@@ -88,9 +88,6 @@
     <Compile Include="..\Endjin.Core.Composition.Web.Net40\Bootstrapper\WebBootstrapper.cs">
       <Link>Bootstrapper\WebBootstrapper.cs</Link>
     </Compile>
-    <Compile Include="..\Endjin.Core.Composition.Web.Net40\Configuration\ContainerConfig.cs">
-      <Link>Configuration\ContainerConfig.cs</Link>
-    </Compile>
     <Compile Include="..\Endjin.Core.Composition.Web.Net40\DependencyResolver\ContainerDependencyResolver.cs">
       <Link>DependencyResolver\ContainerDependencyResolver.cs</Link>
     </Compile>
@@ -100,6 +97,7 @@
     <Compile Include="..\Endjin.Core.Composition.Web.Net40\Installers\ControllerInstaller.cs">
       <Link>Installers\ControllerInstaller.cs</Link>
     </Compile>
+    <Compile Include="Configuration\ContainerConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
