@@ -45,6 +45,9 @@
     <Compile Include="..\Endjin.Core.Composition\Composition\ApplicationServiceLocator.cs">
       <Link>Composition\ApplicationServiceLocator.cs</Link>
     </Compile>
+    <Compile Include="..\Endjin.Core.Composition\Composition\ContainerInitializationException.cs">
+      <Link>Composition\ContainerInitializationException.cs</Link>
+    </Compile>
     <Compile Include="..\Endjin.Core.Composition\Composition\ContentFactory.cs">
       <Link>Composition\ContentFactory.cs</Link>
     </Compile>

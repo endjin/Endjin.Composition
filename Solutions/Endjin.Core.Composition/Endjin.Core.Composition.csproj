@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Composition\ApplicationServiceLocator.cs" />
+    <Compile Include="Composition\ContainerInitializationException.cs" />
     <Compile Include="Composition\ContentFactory.cs" />
     <Compile Include="Composition\Contracts\IContentFactory.cs" />
     <Compile Include="Composition\Contracts\IFactory.cs" />

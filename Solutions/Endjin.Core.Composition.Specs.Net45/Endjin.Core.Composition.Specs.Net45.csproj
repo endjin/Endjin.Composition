@@ -61,9 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\Context\a_bootstrapper_is_available.cs" />
+    <Compile Include="Composition\ApplicationServiceLocatorSpecs\Context\there_are_misconfigured_components.cs" />
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\Context\a_container_is_available.cs" />
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\Context\the_service_locator_has_been_initialized.cs" />
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs" />
+    <Compile Include="Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_misconfigured_components.cs" />
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_and_a_bootstrapper.cs" />
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_a_container_but_no_bootstrapper.cs" />
     <Compile Include="Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs" />

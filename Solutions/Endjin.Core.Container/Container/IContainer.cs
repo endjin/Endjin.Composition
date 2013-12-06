@@ -1,8 +1,9 @@
 ﻿namespace Endjin.Core.Container
 {
     using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
     public interface IContainer
     {
@@ -41,5 +42,7 @@
         object TryResolve(Type type);
 
         object TryResolve(Type type, string name);
+
+        ReadOnlyCollection<ComponentRegistration> MisconfiguredComponents { get; }
     }
 }

@@ -46,10 +46,33 @@
 
             if (bootstrapper != null)
             {
-                return container.InstallAsync(bootstrapper);
+                var task = container.InstallAsync(bootstrapper);
+                return task.ContinueWith(t =>
+                {
+                    if (!IsInitializedSuccessfully)
+                    {
+                        throw new ContainerInitializationException(container);
+                    }
+                });
             }
 
-            return Task.Factory.StartNew(() => { });
+            return Task.Factory.StartNew(() => {});
+        }
+
+        public static bool IsInitialized
+        {
+            get
+            {
+                return Container != null;
+            }
+        }
+
+        public static bool IsInitializedSuccessfully
+        {
+            get
+            {
+                return IsInitialized && Container.MisconfiguredComponents.Count == 0;
+            }
         }
 
         public static void Shutdown()
