@@ -23,7 +23,7 @@ namespace Endjin.Core.Specs.Composition.ApplicationServiceLocatorSpecs
         protected override void When()
         {
             // No need to wait, it is just a Mock
-            ApplicationServiceLocator.InitializeAsync(a_container_is_available.Container.Object, null);
+            ApplicationServiceLocator.InitializeAsync(a_container_is_available.Container.Object, null).Wait();
         }
 
         [Spec]

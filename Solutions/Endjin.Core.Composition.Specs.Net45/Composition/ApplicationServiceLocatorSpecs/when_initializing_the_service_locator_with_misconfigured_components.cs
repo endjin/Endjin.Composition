@@ -28,10 +28,10 @@ namespace Endjin.Core.Specs.Composition.ApplicationServiceLocatorSpecs
         {
             try
             {
-                var task = ApplicationServiceLocator.InitializeAsync(
+                ApplicationServiceLocator.InitializeAsync(
                     a_container_is_available.Container.Object,
-                    a_bootstrapper_is_available.Bootstrapper.Object);
-                task.Wait();
+                    a_bootstrapper_is_available.Bootstrapper.Object).Wait();
+
             }
             catch (AggregateException ex)
             {
