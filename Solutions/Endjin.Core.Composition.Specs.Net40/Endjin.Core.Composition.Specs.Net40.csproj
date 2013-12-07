@@ -67,11 +67,17 @@
     <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\Context\a_container_is_available.cs">
       <Link>Composition\ApplicationServiceLocatorSpecs\Context\a_container_is_available.cs</Link>
     </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\Context\there_are_misconfigured_components.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\Context\there_are_misconfigured_components.cs</Link>
+    </Compile>
     <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\Context\the_service_locator_has_been_initialized.cs">
       <Link>Composition\ApplicationServiceLocatorSpecs\Context\the_service_locator_has_been_initialized.cs</Link>
     </Compile>
     <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs">
       <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_twice.cs</Link>
+    </Compile>
+    <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_misconfigured_components.cs">
+      <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_misconfigured_components.cs</Link>
     </Compile>
     <Compile Include="..\Endjin.Core.Composition.Specs.Net45\Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs">
       <Link>Composition\ApplicationServiceLocatorSpecs\when_initializing_the_service_locator_with_no_container.cs</Link>
