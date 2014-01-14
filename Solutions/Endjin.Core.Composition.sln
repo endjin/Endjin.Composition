@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.Core.Container", "Endjin.Core.Container\Endjin.Core.Container.csproj", "{2742DBEE-7E63-4A8E-9D0B-32F3299D6999}"
 EndProject
@@ -63,6 +63,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.Core.Composition.WinRT", "Endjin.Core.Composition.WinRT\Endjin.Core.Composition.WinRT.csproj", "{7084EBA6-663A-4410-B9C6-31A23B898384}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.Core.Composition.WP8", "Endjin.Core.Composition.WP8\Endjin.Core.Composition.WP8.csproj", "{FFC5BCA3-99A1-482A-AB5A-4280167DC50F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endjin.Core.Composition.Samples.Mvc5.Net45", "Endjin.Core.Composition.Samples.Mvc5.Net45\Endjin.Core.Composition.Samples.Mvc5.Net45.csproj", "{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -300,6 +302,16 @@ Global
 		{FFC5BCA3-99A1-482A-AB5A-4280167DC50F}.Release|x64.ActiveCfg = Release|Any CPU
 		{FFC5BCA3-99A1-482A-AB5A-4280167DC50F}.Release|x86.ActiveCfg = Release|x86
 		{FFC5BCA3-99A1-482A-AB5A-4280167DC50F}.Release|x86.Build.0 = Release|x86
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Release|x64.ActiveCfg = Release|Any CPU
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -323,5 +335,6 @@ Global
 		{8B431D29-1FD3-42F6-8DD5-79C4744310C5} = {CD374D63-565A-43E6-ADEF-19B485E00897}
 		{4E82F992-97DF-4CA8-80B2-E50345B02042} = {CD374D63-565A-43E6-ADEF-19B485E00897}
 		{A71F17A0-EDB8-4DE4-98FA-217464CAD3AE} = {CD374D63-565A-43E6-ADEF-19B485E00897}
+		{6A381BEC-AD17-4979-8F6F-AF28C8736EA0} = {CD374D63-565A-43E6-ADEF-19B485E00897}
 	EndGlobalSection
 EndGlobal

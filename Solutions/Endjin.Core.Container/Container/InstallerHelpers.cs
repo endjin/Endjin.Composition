@@ -29,7 +29,7 @@
                     });
         }
 
-        private static IEnumerable<Type> TryGetExportedTypes(Assembly assembly)
+        public static IEnumerable<Type> TryGetExportedTypes(this Assembly assembly)
         {
             try
             {

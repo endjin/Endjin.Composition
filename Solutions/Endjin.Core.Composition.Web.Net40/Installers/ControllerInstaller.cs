@@ -1,8 +1,9 @@
 ﻿namespace Endjin.Core.Installers
 {
     using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
-    using System.Reflection;
     using System.Web.Http.Controllers;
     using System.Web.Mvc;
     using Endjin.Core.Container;
@@ -15,7 +16,16 @@
 
             foreach (var assembly in assemblies)
             {
-                var controllers = assembly.GetExportedTypes().Where(x => !(x.IsGenericType && x.ContainsGenericParameters) && !x.IsAbstract && !x.IsInterface && (typeof(IController).IsAssignableFrom(x) || typeof(IHttpController).IsAssignableFrom(x)));
+                IEnumerable<Type> controllers = new List<Type>();
+                    
+                try
+                {
+                    controllers = assembly.TryGetExportedTypes().Where(x => !(x.IsGenericType && x.ContainsGenericParameters) && !x.IsAbstract && !x.IsInterface && (typeof(IController).IsAssignableFrom(x) || typeof(IHttpController).IsAssignableFrom(x)));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
 
                 foreach (var current in controllers)
                 {
