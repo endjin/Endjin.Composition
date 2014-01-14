@@ -13,8 +13,8 @@
     <dependencies>
 		<group targetFramework="net40-full">
 			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
-			<dependency id="Microsoft.AspNet.Mvc" version="4.0.0.0" />
-			<dependency id="Microsoft.AspNet.WebApi.Core" version="4.0.0.0" />
+			<dependency id="Microsoft.AspNet.Mvc" version="5.0.0.0" />
+			<dependency id="Microsoft.AspNet.WebApi.Core" version="5.0.0.0" />
 			<dependency id="WebActivatorEx" version="2.0.3" />
 		</group>
     <group targetFramework="Net45">
