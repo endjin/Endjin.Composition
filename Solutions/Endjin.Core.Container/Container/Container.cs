@@ -16,6 +16,7 @@
 
         private readonly Dictionary<Type, List<ComponentRegistration>> componentsByType = new Dictionary<Type, List<ComponentRegistration>>();
         private readonly Dictionary<string, List<ComponentRegistration>> componentsByName = new Dictionary<string, List<ComponentRegistration>>();
+        private readonly Dictionary<string, List<ComponentRegistration>> componentsByInstaller = new Dictionary<string, List<ComponentRegistration>>();
 
         private bool isInstalling;
 
@@ -206,6 +207,7 @@
                 this.allRegistrations.Clear();
                 this.componentsByName.Clear();
                 this.componentsByType.Clear();
+                this.componentsByInstaller.Clear();
                 this.singletons.Clear();
             }
             finally
@@ -264,6 +266,14 @@
             var registrations = this.EnsureNameRegistrations(registration.Name ?? registration.ComponentType.Name);
             registrations.Add(registration);
         }
+
+#if NET45
+        private void AddByInstaller(ComponentRegistration registration)
+        {
+            var registrations = this.EnsureInstalledByRegistrations(registration.InstalledBy);
+            registrations.Add(registration);            
+        }
+#endif
 
         private static void AddTabs(StringBuilder str, int tabs)
         {
@@ -341,6 +351,12 @@
             return EnsureRegistrations(this.componentsByName, name);
         }
 
+#if NET45
+        private List<ComponentRegistration> EnsureInstalledByRegistrations(string installedBy)
+        {
+            return EnsureRegistrations(this.componentsByInstaller, installedBy);
+        }
+#endif
         private static List<ComponentRegistration> EnsureRegistrations<T>(IDictionary<T, List<ComponentRegistration>> dictionary, T key)
         {
             List<ComponentRegistration> result;
@@ -517,6 +533,9 @@
             {
                 this.AddByType(registration);
                 this.AddByName(registration);
+#if NET45
+                this.AddByInstaller(registration);
+#endif
                 this.allRegistrations.Add(registration);
             }
         }

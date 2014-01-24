@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using System.Runtime.CompilerServices;
 
     public static class AllTypes
     {
@@ -12,7 +13,11 @@
             return FromAssembly(typeof(T).GetTypeInfo().Assembly);
         }
 
-        public static IEnumerable<ComponentRegistration> FromAssembly(Assembly assembly)
+        public static IEnumerable<ComponentRegistration> FromAssembly(Assembly assembly
+#if NET45
+            , [CallerFilePath] string sourceFilePath = ""
+#endif
+            )
         {
             return assembly.GetExportedTypes().Where(t =>
             {
@@ -20,6 +25,9 @@
                 return typeInfo.IsClass && !typeInfo.ContainsGenericParameters && !typeInfo.IsAbstract;
             }).Select(t => new ComponentRegistration
                 {
+#if NET45
+                    InstalledBy = sourceFilePath,
+#endif
                     ComponentType = t, 
                     RegistrationTypes = new List<Type> { t }, 
                     Name = t.Name, 

@@ -20,5 +20,7 @@ namespace Endjin.Core.Container
         public ConstructorRegistration PreferredConstructor { get; set; }
 
         public string Error { get; internal set; }
+
+        public object InstalledBy { get; set; }
     }
 }
