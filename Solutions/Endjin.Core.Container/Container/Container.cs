@@ -380,24 +380,32 @@
 
             foreach (var registration in registrations)
             {
-                var constructorRegistrations = registration.ComponentType.GetTypeInfo().GetConstructors().Select(c => new ConstructorRegistration { Constructor = c, Parameters = c.GetParameters() }).OrderByDescending(r => r.Parameters.Length);
-                var resolvedConstructor = constructorRegistrations.FirstOrDefault(this.ResolveConstructor);
-                if (resolvedConstructor != null)
+                try
                 {
-                    registration.PreferredConstructor = resolvedConstructor;
-                    registration.Error = string.Empty;
-
-                    if (this.misconfiguredComponents.Contains(registration))
+                    var constructorRegistrations = registration.ComponentType.GetTypeInfo().GetConstructors().Select(c => new ConstructorRegistration { Constructor = c, Parameters = c.GetParameters() }).OrderByDescending(r => r.Parameters.Length);
+                    var resolvedConstructor = constructorRegistrations.FirstOrDefault(this.ResolveConstructor);
+                    if (resolvedConstructor != null)
                     {
-                        this.misconfiguredComponents.Remove(registration);
+                        registration.PreferredConstructor = resolvedConstructor;
+                        registration.Error = string.Empty;
+
+                        if (this.misconfiguredComponents.Contains(registration))
+                        {
+                            this.misconfiguredComponents.Remove(registration);
+                        }
+                    }
+                    else
+                    {
+                        registration.PreferredConstructor = constructorRegistrations.FirstOrDefault();
+                        var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
+                        this.GetInstanceFor(registration, registration.ComponentType.Name, error);
+                        registration.Error = this.BuildMessage(error);
+                        this.misconfiguredComponents.Add(registration);
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    registration.PreferredConstructor = constructorRegistrations.FirstOrDefault();
-                    var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
-                    this.GetInstanceFor(registration, registration.ComponentType.Name, error);
-                    registration.Error = this.BuildMessage(error);
+                    var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false, Error = ex.Message };
                     this.misconfiguredComponents.Add(registration);
                 }
             }
