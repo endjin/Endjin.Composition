@@ -21,6 +21,8 @@ namespace Endjin.Core.Container
 
         public string Error { get; internal set; }
 
-        public object InstalledBy { get; set; }
+#if NET45
+        public string InstalledBy { get; set; }
+#endif
     }
 }
