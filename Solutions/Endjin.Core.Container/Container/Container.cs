@@ -405,7 +405,8 @@
                 }
                 catch (Exception ex)
                 {
-                    var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false, Error = ex.Message };
+                    var error = new ResolutionTreeNode { Component = null, Children = new List<ResolutionTreeNode>(), IsInError = false };
+                    registration.Error = ex.Message;
                     this.misconfiguredComponents.Add(registration);
                 }
             }
