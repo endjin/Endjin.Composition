@@ -15,9 +15,6 @@
 			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
 			<dependency id="Microsoft.AspNet.Mvc" version="4.0.20710.0" />
 			<dependency id="WebActivatorEx" version="2.0.4" />
-      <frameworkAssemblies>
-        <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
-      </frameworkAssemblies>
 		</group>
     <group targetFramework="Net45">
 			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
@@ -25,6 +22,9 @@
       <dependency id="WebActivatorEx" version="2.0.4" />
 		</group>		
 	</dependencies>
+  <frameworkAssemblies>
+        <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
+      </frameworkAssemblies>
   </metadata>
   <files>
     <file src="EndjinCoreCompositionWebNet40.dll" target="lib\net40-full\EndjinCoreCompositionWebNet40.dll" />

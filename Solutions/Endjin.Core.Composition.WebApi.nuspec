@@ -24,9 +24,6 @@
       <dependency id="Newtonsoft.Json" version="6.0.1" />
 		</group>		
 	</dependencies>
-  <frameworkAssemblies>
-    <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
-  </frameworkAssemblies>
   </metadata>
   <files>
     <file src="EndjinCoreCompositionWebApiNet40.dll" target="lib\net40-full\EndjinCoreCompositionWebApiNet40.dll" />
