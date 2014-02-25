@@ -6,10 +6,8 @@ namespace Endjin.Core.Configuration
 
     using System;
     using System.Diagnostics;
-    using System.Web.Http;
     using System.Web.Mvc;
     using Endjin.Core.Composition;
-    using Endjin.Core.Composition.DependencyResolver;
     using Endjin.Core.Container;
 
     #endregion
@@ -23,24 +21,26 @@ namespace Endjin.Core.Configuration
 
         private static IContainer InitialiseContainerWithBootstrapper(IBootstrapper containerBootstrapper)
         {
-            var container = new Container();
+            IContainer container = new Container();
 
             try
             {
-                ApplicationServiceLocator.InitializeAsync(container, containerBootstrapper).Wait();
+                if (!ApplicationServiceLocator.IsInitializedSuccessfully)
+                {
+                    ApplicationServiceLocator.InitializeAsync(container, containerBootstrapper).Wait();
+                }
+                else
+                {
+                    container = ApplicationServiceLocator.Container;
+                }
 
-
-                // WebAPI
-                GlobalConfiguration.Configuration.DependencyResolver = new ContainerDependencyResolver(container);
-
-                // MVC
                 DependencyResolver.SetResolver(
                     x => container.HasComponent(x) ? container.Resolve(x) : null,
                     x => container.HasComponent(x) ? container.ResolveAll(x) : new object[0]);
             }
             catch (Exception exception)
             {
-                Debug.WriteLine(exception.Message);
+                Trace.TraceError(exception.Message);
             }
 
             return container;

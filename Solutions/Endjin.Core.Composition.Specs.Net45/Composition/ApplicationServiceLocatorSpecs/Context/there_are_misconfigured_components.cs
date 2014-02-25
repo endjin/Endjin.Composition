@@ -6,7 +6,6 @@
     using System.Collections.ObjectModel;
     using Endjin.Core.Composition;
     using Endjin.Core.Container;
-    using Endjin.Core.Specs.Composition.Context;
     using Endjin.Core.Specs.Helpers;
 
     #endregion

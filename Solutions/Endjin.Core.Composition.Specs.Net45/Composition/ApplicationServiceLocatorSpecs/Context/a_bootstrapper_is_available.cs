@@ -20,7 +20,7 @@ namespace Endjin.Core.Specs.Composition.ApplicationServiceLocatorSpecs.Context
 
         public IInstaller[] Installers { get; set; }
 
-        public void Initialize(ITestState<ApplicationServiceLocator> state)
+        public void Initialize(ISpecs<ApplicationServiceLocator> state)
         {
             Bootstrapper = state.GetMockFor<IBootstrapper>();
             this.Installers = new[] { state.GetMockFor<IInstaller>().Object };

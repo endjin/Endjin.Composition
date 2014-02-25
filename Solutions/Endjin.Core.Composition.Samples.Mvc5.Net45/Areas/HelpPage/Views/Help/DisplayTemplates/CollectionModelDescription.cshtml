@@ -1,0 +1,6 @@
+@using Endjin.Core.Composition.Samples.Mvc5.Net45.Areas.HelpPage.ModelDescriptions
+@model CollectionModelDescription
+@if (Model.ElementDescription is ComplexTypeModelDescription)
+{
+    @Html.DisplayFor(m => m.ElementDescription)
+}
