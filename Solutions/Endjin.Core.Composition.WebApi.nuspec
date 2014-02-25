@@ -5,7 +5,7 @@
     <authors>Endjin</authors>
     <owners />
     <id>Endjin.Core.Composition.WebApi</id>
-    <title>Endjin Composition Framework with Extensions for ASP.NET MVC / WebApi</title>
+    <title>Endjin Composition Framework with Extensions for ASP.NET WebApi</title>
     <tags>endjin DependencyInjection DI InversionOfControl IoC Composition</tags>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple. This framework supports .NET 4.0, .NET 4.5, WinRT and WP8. This package integrates the framework with ASP.NET MVC 4</description>
