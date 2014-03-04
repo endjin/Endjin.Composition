@@ -11,17 +11,17 @@
     <description>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple. This framework supports .NET 4.0, .NET 4.5, WinRT and WP8. This package integrates the framework with ASP.NET MVC 4</description>
     <iconUrl>https://raw.github.com/endjin/Endjin.Core.Composition-V2/master/Assets/Composition.png</iconUrl>
     <dependencies>
-		<group targetFramework="net40-full">
-			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
-			<dependency id="Microsoft.AspNet.Mvc" version="4.0.20710.0" />
-			<dependency id="WebActivatorEx" version="2.0.4" />
-		</group>
+    <group targetFramework="net40-full">
+      <dependency id="Endjin.Core.Composition" version="2.0.0.0" />
+      <dependency id="Microsoft.AspNet.Mvc" version="4.0.20710.0" />
+      <dependency id="WebActivatorEx" version="2.0.4" />
+    </group>
     <group targetFramework="Net45">
-			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
+      <dependency id="Endjin.Core.Composition" version="2.2.0.0" />
       <dependency id="Microsoft.AspNet.Mvc" version="5.1.1" />
       <dependency id="WebActivatorEx" version="2.0.4" />
-		</group>		
-	</dependencies>
+    </group>    
+  </dependencies>
   <frameworkAssemblies>
         <frameworkAssembly assemblyName="System.Web.Http.WebHost"  />
       </frameworkAssemblies>
@@ -29,7 +29,7 @@
   <files>
     <file src="EndjinCoreCompositionWebNet40.dll" target="lib\net40-full\EndjinCoreCompositionWebNet40.dll" />
     <file src="EndjinCoreCompositionWebNet40.pdb" target="lib\net40-full\EndjinCoreCompositionWebNet40.pdb" />
-	  <file src="EndjinCoreCompositionWebNet45.dll" target="lib\Net45\EndjinCoreCompositionWebNet45.dll" />
+    <file src="EndjinCoreCompositionWebNet45.dll" target="lib\Net45\EndjinCoreCompositionWebNet45.dll" />
     <file src="EndjinCoreCompositionWebNet45.pdb" target="lib\Net45\EndjinCoreCompositionWebNet45.pdb" />
   </files>
 </package>

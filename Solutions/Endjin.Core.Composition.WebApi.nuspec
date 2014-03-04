@@ -11,24 +11,24 @@
     <description>Whatever the framework, component composition works the same way: you have interfaces and concrete implementations and you need to map one against the other. The Endjin Composition Framework helps you work smarter, not harder by making component composition simple. This framework supports .NET 4.0, .NET 4.5, WinRT and WP8. This package integrates the framework with ASP.NET MVC 4</description>
     <iconUrl>https://raw.github.com/endjin/Endjin.Core.Composition-V2/master/Assets/Composition.png</iconUrl>
     <dependencies>
-		<group targetFramework="net40-full">
-			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
-			<dependency id="Microsoft.AspNet.WebApi.Core" version="4.0.30506.0" />
-			<dependency id="WebActivatorEx" version="2.0.4" />
-			<dependency id="Newtonsoft.Json" version="6.0.1" />
-		</group>
-    <group targetFramework="Net45">
-			<dependency id="Endjin.Core.Composition" version="2.0.0.0" />
-			<dependency id="Microsoft.AspNet.WebApi.Core" version="5.0.0.0" />
+    <group targetFramework="net40-full">
+      <dependency id="Endjin.Core.Composition" version="2.2.0.0" />
+      <dependency id="Microsoft.AspNet.WebApi.Core" version="4.0.30506.0" />
       <dependency id="WebActivatorEx" version="2.0.4" />
       <dependency id="Newtonsoft.Json" version="6.0.1" />
-		</group>		
-	</dependencies>
+    </group>
+    <group targetFramework="Net45">
+      <dependency id="Endjin.Core.Composition" version="2.2.0.0" />
+      <dependency id="Microsoft.AspNet.WebApi.Core" version="5.1.1" />
+      <dependency id="WebActivatorEx" version="2.0.4" />
+      <dependency id="Newtonsoft.Json" version="6.0.1" />
+    </group>    
+  </dependencies>
   </metadata>
   <files>
     <file src="EndjinCoreCompositionWebApiNet40.dll" target="lib\net40-full\EndjinCoreCompositionWebApiNet40.dll" />
     <file src="EndjinCoreCompositionWebApiNet40.pdb" target="lib\net40-full\EndjinCoreCompositionWebApiNet40.pdb" />
-	  <file src="EndjinCoreCompositionWebApiNet45.dll" target="lib\Net45\EndjinCoreCompositionWebApiNet45.dll" />
+    <file src="EndjinCoreCompositionWebApiNet45.dll" target="lib\Net45\EndjinCoreCompositionWebApiNet45.dll" />
     <file src="EndjinCoreCompositionWebApiNet45.pdb" target="lib\Net45\EndjinCoreCompositionWebApiNet45.pdb" />
   </files>
 </package>
