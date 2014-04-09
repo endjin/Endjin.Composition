@@ -40,15 +40,15 @@
     <file src="EndjinCoreComposition.dll" target="lib\portable-windows8+net45\EndjinCoreComposition.dll" />
     <file src="EndjinCoreComposition.pdb" target="lib\portable-windows8+net45\EndjinCoreComposition.pdb" />
 
-    <file src="EndjinCoreComposition.dll" target="lib\windows8\EndjinCoreComposition.dll" />
-    <file src="EndjinCoreComposition.pdb" target="lib\windows8\EndjinCoreComposition.pdb" />
-    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.dll" target="lib\windows8\EndjinCoreCompositionWinRT.dll" />
-    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.pdb" target="lib\windows8\EndjinCoreCompositionWinRT.pdb" />
-    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.dll" target="lib\windows8\EndjinCoreContainer.dll" />
-    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.pdb" target="lib\windows8\EndjinCoreContainer.pdb" />
-    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.dll" target="lib\windows8\EndjinCoreContainerWinRT.dll" />
-    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.pdb" target="lib\windows8\EndjinCoreContainerWinRT.pdb" />
-    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.pri" target="lib\windows8\EndjinCoreContainerWinRT.pri" />
+    <file src="EndjinCoreComposition.dll" target="lib\windows81\EndjinCoreComposition.dll" />
+    <file src="EndjinCoreComposition.pdb" target="lib\windows81\EndjinCoreComposition.pdb" />
+    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.dll" target="lib\windows81\EndjinCoreCompositionWinRT.dll" />
+    <file src="Endjin.Core.Composition.WinRT\EndjinCoreCompositionWinRT.pdb" target="lib\windows81\EndjinCoreCompositionWinRT.pdb" />
+    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.dll" target="lib\windows81\EndjinCoreContainer.dll" />
+    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainer.pdb" target="lib\windows81\EndjinCoreContainer.pdb" />
+    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.dll" target="lib\windows81\EndjinCoreContainerWinRT.dll" />
+    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.pdb" target="lib\windows81\EndjinCoreContainerWinRT.pdb" />
+    <file src="Endjin.Core.Container.WinRT\EndjinCoreContainerWinRT.pri" target="lib\windows81\EndjinCoreContainerWinRT.pri" />
 
     <file src="EndjinCoreContainer.dll" target="lib\WP8\EndjinCoreContainer.dll" />
     <file src="EndjinCoreContainer.pdb" target="lib\WP8\EndjinCoreContainer.pdb" />
