@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="aa222bed-f399-4815-a29a-3e56aaa4f710" Publisher="CN=Matthew" Version="1.1.0.0" />
+  <Identity Name="aa222bed-f399-4815-a29a-3e56aaa4f710" Publisher="CN=Endjin" Version="1.1.0.0" />
   <Properties>
     <DisplayName>Endjin.Core.Composition.Samples.WinRT</DisplayName>
     <PublisherDisplayName>Mike.Larah</PublisherDisplayName>
