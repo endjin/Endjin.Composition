@@ -52,6 +52,7 @@
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
     </Compile>
     <Compile Include="Installers\ContainerInstaller.cs" />
+    <Compile Include="Installers\ContentFactoryInstallerBase.cs" />
     <Compile Include="Installers\ResourceRegistryInstaller.cs" />
     <Compile Include="Installers\TransientAttribute.cs" />
     <Compile Include="Installers\InstallerBase.cs" />

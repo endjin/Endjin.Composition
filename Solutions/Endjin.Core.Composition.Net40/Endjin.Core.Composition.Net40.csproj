@@ -79,6 +79,9 @@
     <Compile Include="..\Endjin.Core.Composition\Installers\ContainerInstaller.cs">
       <Link>Installers\ContainerInstaller.cs</Link>
     </Compile>
+    <Compile Include="..\Endjin.Core.Composition\Installers\ContentFactoryInstallerBase.cs">
+      <Link>Installers\ContentFactoryInstallerBase.cs</Link>
+    </Compile>
     <Compile Include="..\Endjin.Core.Composition\Installers\InstallerBase.cs">
       <Link>Installers\InstallerBase.cs</Link>
     </Compile>
