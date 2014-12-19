@@ -37,6 +37,23 @@
                 Component.For<T>().ImplementedBy<TInstance>().Named(contentType).AsTransient());
         }
 
+        public void RegisterContent(string contentType, T content)
+        {
+            if (this.registeredTypes.Contains(contentType))
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.CurrentCulture,
+                        ExceptionMessages.ContentFactory_ContentAlreadyRegistered,
+                        contentType),
+                    "contentType");
+            }
+
+            this.registeredTypes.Add(contentType);
+            ApplicationServiceLocator.Container.Register(
+                Component.For<T>().ImplementedBy(content).Named(contentType).AsSingleton());
+        }
+
         public virtual T GetContentFor(string contentType)
         {
             return this.GetContentForCore(contentType);
