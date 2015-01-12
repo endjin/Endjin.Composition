@@ -382,6 +382,20 @@
             {
                 try
                 {
+                    if (registration.ComponentInstance != null)
+                    {
+                        // We've already got a constructor, so clear the error and
+                        // remove us from misconfigured components if we were in there already
+                        registration.Error = string.Empty;
+
+                        if (this.misconfiguredComponents.Contains(registration))
+                        {
+                            this.misconfiguredComponents.Remove(registration);
+                        }
+
+                        continue;
+                    }
+
                     var constructorRegistrations = registration.ComponentType.GetTypeInfo().GetConstructors().Select(c => new ConstructorRegistration { Constructor = c, Parameters = c.GetParameters() }).OrderByDescending(r => r.Parameters.Length);
                     var resolvedConstructor = constructorRegistrations.FirstOrDefault(this.ResolveConstructor);
                     if (resolvedConstructor != null)
