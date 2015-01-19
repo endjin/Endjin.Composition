@@ -72,7 +72,7 @@
 
             this.registeredTypes.Add(contentType);
             ApplicationServiceLocator.Container.Register(
-                Component.For<T>().ImplementedBy(instanceType).Named(contentType).AsTransient());
+                Component.For<T>().ImplementedByType(instanceType).Named(contentType).AsTransient());
         }
 
         private T GetContentForCore(string contentType)
