@@ -2,14 +2,13 @@
 {
     #region Using Directives
 
+    using Endjin.Core.Composition.Contracts;
+    using Endjin.Core.Container;
     using System;
     using System.Collections.Generic;
     using System.Globalization;
 
-    using Endjin.Core.Composition.Contracts;
-    using Endjin.Core.Container;
-
-    #endregion
+    #endregion Using Directives
 
     public abstract class ContentFactory<T> : IContentFactory<T> where T : class
     {
@@ -20,21 +19,9 @@
             this.registeredTypes = new HashSet<string>();
         }
 
-        public virtual void RegisterContentFor<TInstance>(string contentType) where TInstance : T
+        public virtual T GetContentFor(string contentType)
         {
-            if (this.registeredTypes.Contains(contentType))
-            {
-                throw new ArgumentException(
-                    string.Format(
-                        CultureInfo.CurrentCulture, 
-                        ExceptionMessages.ContentFactory_ContentAlreadyRegistered, 
-                        contentType), 
-                    "contentType");
-            }
-
-            this.registeredTypes.Add(contentType);
-            ApplicationServiceLocator.Container.Register(
-                Component.For<T>().ImplementedBy<TInstance>().Named(contentType).AsTransient());
+            return this.GetContentForCore(contentType);
         }
 
         public void RegisterContent(string contentType, T content)
@@ -54,9 +41,38 @@
                 Component.For<T>().ImplementedBy(content).Named(contentType).AsSingleton());
         }
 
-        public virtual T GetContentFor(string contentType)
+        public virtual void RegisterContentFor<TInstance>(string contentType) where TInstance : T
         {
-            return this.GetContentForCore(contentType);
+            if (this.registeredTypes.Contains(contentType))
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.CurrentCulture,
+                        ExceptionMessages.ContentFactory_ContentAlreadyRegistered,
+                        contentType),
+                    "contentType");
+            }
+
+            this.registeredTypes.Add(contentType);
+            ApplicationServiceLocator.Container.Register(
+                Component.For<T>().ImplementedBy<TInstance>().Named(contentType).AsTransient());
+        }
+
+        public virtual void RegisterContentFor(Type instanceType, string contentType)
+        {
+            if (this.registeredTypes.Contains(contentType))
+            {
+                throw new ArgumentException(
+                    string.Format(
+                        CultureInfo.CurrentCulture,
+                        ExceptionMessages.ContentFactory_ContentAlreadyRegistered,
+                        contentType),
+                    "contentType");
+            }
+
+            this.registeredTypes.Add(contentType);
+            ApplicationServiceLocator.Container.Register(
+                Component.For<T>().ImplementedBy(instanceType).Named(contentType).AsTransient());
         }
 
         private T GetContentForCore(string contentType)
