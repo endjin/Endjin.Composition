@@ -44,7 +44,13 @@ namespace Endjin.Core.Installers
 
         private string GetName(Type type)
         {
-            return type.GetRuntimeProperties().First(p => p.Name == this.nameProperty).GetValue(null) as string;
+            var property = type.GetRuntimeProperties().FirstOrDefault(p => p.Name == this.nameProperty);
+            if (property != null)
+            {
+                return GetValue(null) as string;
+            }
+            var field = type.GetRuntimeFields().FirstOrDefault(p => p.Name == this.nameProperty);
+            return field.GetValue(null) as string;
         }
     }
 }

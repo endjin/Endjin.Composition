@@ -11,11 +11,24 @@ namespace Endjin.Core.Specs.Composition.ContentFactorySpecs
 
     using Should;
 
-    #endregion
+    #endregion Using statements
 
     public class when_content_is_requested_that_has_been_registered_without_format : SpecificationsFor<TestContentFactory>
     {
         private object content;
+
+        public override void TearDown()
+        {
+            ApplicationServiceLocator.Shutdown();
+            base.TearDown();
+        }
+
+        [Spec]
+        public void then_the_content_should_be_retrieved()
+        {
+            var context = this.GetContext<content_is_registered_without_format>();
+            this.content.ShouldBeSameAs(context.Content);
+        }
 
         protected override void EstablishContext()
         {
@@ -26,19 +39,6 @@ namespace Endjin.Core.Specs.Composition.ContentFactorySpecs
         {
             var context = this.GetContext<content_is_registered_without_format>();
             this.content = this.SUT.GetContentFor(context.ContentName);
-        }
-
-        [Spec]
-        public void then_the_content_should_be_retrieved()
-        {
-            var context = this.GetContext<content_is_registered_without_format>();
-            this.content.ShouldBeSameAs(context.Content);
-        }
-
-        public override void TearDown()
-        {
-            ApplicationServiceLocator.Shutdown();
-            base.TearDown();
         }
     }
 }
