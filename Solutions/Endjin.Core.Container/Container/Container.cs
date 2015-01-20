@@ -76,8 +76,8 @@
                         installer.Install(this);
                     }
 
-                    this.FindConstructors(this.allRegistrations);
                     bootstrapper.RegisterContent();
+                    this.FindConstructors(this.allRegistrations);
                 }).ContinueWith(t => this.isInstalling = false);
         }
 
@@ -93,8 +93,8 @@
                 {
                     installer.Install(this);
                 }
-                this.FindConstructors(this.allRegistrations);
                 bootstrapper.RegisterContent();
+                this.FindConstructors(this.allRegistrations);
             }
             finally
             {
