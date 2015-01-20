@@ -2,14 +2,16 @@
 {
     #region Using Directives
 
+    using Endjin.Core.Container;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.Linq;
     using System.Web.Http.Controllers;
-    using Endjin.Core.Container;
 
-    #endregion 
+    #endregion Using Directives
+
+
 
     public class ApiControllerInstaller : IInstaller
     {

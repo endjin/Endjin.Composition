@@ -19,20 +19,20 @@
 #endif
             )
         {
-            return assembly.GetExportedTypes().Where(t =>
+            return assembly.TryGetExportedTypes().Where(t =>
             {
                 var typeInfo = t.GetTypeInfo();
                 return typeInfo.IsClass && !typeInfo.ContainsGenericParameters && !typeInfo.IsAbstract;
             }).Select(t => new ComponentRegistration
-                {
+            {
 #if NET45
-                    InstalledBy = sourceFilePath,
+                InstalledBy = sourceFilePath,
 #endif
-                    ComponentType = t, 
-                    RegistrationTypes = new List<Type> { t }, 
-                    Name = t.Name, 
-                    Lifestyle = Lifestyle.Singleton
-                });
+                ComponentType = t,
+                RegistrationTypes = new List<Type> { t },
+                Name = t.Name,
+                Lifestyle = Lifestyle.Singleton
+            });
         }
     }
 }

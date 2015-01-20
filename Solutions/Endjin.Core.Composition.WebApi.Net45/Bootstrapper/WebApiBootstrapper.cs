@@ -51,7 +51,7 @@
 
         private void RegisterAttributedContent(Assembly assembly)
         {
-            assembly.GetExportedTypes().ToList().ForEach(t =>
+            assembly.TryGetExportedTypes().ToList().ForEach(t =>
             {
                 Attribute.GetCustomAttributes(t).Where(a => typeof(RegisterAsContentAttribute).IsAssignableFrom(a.GetType())).Cast<RegisterAsContentAttribute>().ToList().ForEach(a =>
                 {

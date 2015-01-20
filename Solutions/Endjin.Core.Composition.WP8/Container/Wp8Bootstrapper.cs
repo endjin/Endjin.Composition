@@ -49,7 +49,7 @@
 
         private void RegisterAttributedContent(Assembly assembly)
         {
-            var types = assembly.GetExportedTypes().ToList();
+            var types = assembly.TryGetExportedTypes().ToList();
             foreach (var t in types)
             {
                 var attributes = t.GetTypeInfo().GetCustomAttributes<RegisterAsContentAttribute>().ToList();
