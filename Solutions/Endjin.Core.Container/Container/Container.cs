@@ -62,6 +62,7 @@
         }
 
 #if NET40
+
         public Task InstallAsync(IBootstrapper bootstrapper)
         {
             this.isInstalling = true;
@@ -69,7 +70,6 @@
             return Task.Factory.StartNew(
                 () =>
                 {
-
                     var installers = bootstrapper.GetInstallersAsync().Result;
                     foreach (var installer in installers)
                     {
@@ -77,8 +77,10 @@
                     }
 
                     this.FindConstructors(this.allRegistrations);
+                    bootstrapper.RegisterContent();
                 }).ContinueWith(t => this.isInstalling = false);
         }
+
 #else
         public async Task InstallAsync(IBootstrapper bootstrapper)
         {
@@ -91,13 +93,13 @@
                 {
                     installer.Install(this);
                 }
+                this.FindConstructors(this.allRegistrations);
+                bootstrapper.RegisterContent();
             }
             finally
             {
                 this.isInstalling = false;
             }
-
-            this.FindConstructors(this.allRegistrations);
         }
 #endif
 
@@ -271,7 +273,7 @@
         private void AddByInstaller(ComponentRegistration registration)
         {
             var registrations = this.EnsureInstalledByRegistrations(registration.InstalledBy);
-            registrations.Add(registration);            
+            registrations.Add(registration);
         }
 #endif
 
@@ -322,7 +324,7 @@
         {
             if (registration.PreferredConstructor == null)
             {
-                parentTreeNode.Children.Add(new ResolutionTreeNode { Component = registration.ComponentType.Name, IsInError = true, Children = new List<ResolutionTreeNode>()});
+                parentTreeNode.Children.Add(new ResolutionTreeNode { Component = registration.ComponentType.Name, IsInError = true, Children = new List<ResolutionTreeNode>() });
                 parentTreeNode.IsInError = true;
                 return null;
             }
@@ -357,6 +359,7 @@
             return EnsureRegistrations(this.componentsByInstaller, installedBy);
         }
 #endif
+
         private static List<ComponentRegistration> EnsureRegistrations<T>(IDictionary<T, List<ComponentRegistration>> dictionary, T key)
         {
             List<ComponentRegistration> result;

@@ -5,11 +5,14 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    #endregion
+    #endregion Using statements
 
     public interface IBootstrapper
     {
         Task<IEnumerable<IInstaller>> GetInstallersAsync();
+
+        void RegisterContent();
+
         Task RegisterResourcesAsync();
     }
 }

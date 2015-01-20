@@ -46,6 +46,7 @@
     <Compile Include="Composition\Factory.cs" />
     <Compile Include="Composition\Marker.cs" />
     <Compile Include="Composition\NamedFactory.cs" />
+    <Compile Include="Composition\RegisterAsContentAttribute.cs" />
     <Compile Include="ExceptionMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

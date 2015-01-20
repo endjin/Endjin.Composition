@@ -1,17 +1,32 @@
 ﻿namespace Endjin.Core.Composition
 {
-    #region Using Directives 
+    #region Using Directives
 
+    using Endjin.Core.Container;
     using System;
     using System.Threading.Tasks;
 
-    using Endjin.Core.Container;
-
-    #endregion
+    #endregion Using Directives
 
     public class ApplicationServiceLocator
     {
         public static IContainer Container { get; private set; }
+
+        public static bool IsInitialized
+        {
+            get
+            {
+                return Container != null;
+            }
+        }
+
+        public static bool IsInitializedSuccessfully
+        {
+            get
+            {
+                return IsInitialized && Container.MisconfiguredComponents.Count == 0;
+            }
+        }
 
         public static void Initialize(IContainer container)
         {
@@ -56,23 +71,7 @@
                 });
             }
 
-            return Task.Factory.StartNew(() => {});
-        }
-
-        public static bool IsInitialized
-        {
-            get
-            {
-                return Container != null;
-            }
-        }
-
-        public static bool IsInitializedSuccessfully
-        {
-            get
-            {
-                return IsInitialized && Container.MisconfiguredComponents.Count == 0;
-            }
+            return Task.Factory.StartNew(() => { });
         }
 
         public static void Shutdown()

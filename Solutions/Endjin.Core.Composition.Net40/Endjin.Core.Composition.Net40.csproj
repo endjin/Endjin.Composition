@@ -70,6 +70,9 @@
     <Compile Include="..\Endjin.Core.Composition\Composition\NamedFactory.cs">
       <Link>Composition\NamedFactory.cs</Link>
     </Compile>
+    <Compile Include="..\Endjin.Core.Composition\Composition\RegisterAsContentAttribute.cs">
+      <Link>Composition\RegisterAsContentAttribute.cs</Link>
+    </Compile>
     <Compile Include="..\Endjin.Core.Composition\ExceptionMessages.Designer.cs">
       <Link>ExceptionMessages.Designer.cs</Link>
       <DependentUpon>ExceptionMessages.resx</DependentUpon>
