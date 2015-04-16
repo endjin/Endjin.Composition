@@ -36,13 +36,13 @@ namespace Endjin.Core.Configuration
                 {
                     container = ApplicationServiceLocator.Container;
                 }
-
-                GlobalConfiguration.Configuration.DependencyResolver = new ContainerDependencyResolver(container);
             }
             catch (Exception exception)
             {
                 Trace.TraceError(exception.Message);
             }
+
+            GlobalConfiguration.Configuration.DependencyResolver = new ContainerDependencyResolver(container);
 
             return container;
         }

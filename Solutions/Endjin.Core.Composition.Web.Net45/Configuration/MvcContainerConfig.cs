@@ -33,15 +33,15 @@ namespace Endjin.Core.Configuration
                 {
                     container = ApplicationServiceLocator.Container;
                 }
-
-                DependencyResolver.SetResolver(
-                    x => container.HasComponent(x) ? container.Resolve(x) : null,
-                    x => container.HasComponent(x) ? container.ResolveAll(x) : new object[0]);
             }
             catch (Exception exception)
             {
                 Trace.TraceError(exception.Message);
             }
+
+            DependencyResolver.SetResolver(
+                x => container.HasComponent(x) ? container.Resolve(x) : null,
+                x => container.HasComponent(x) ? container.ResolveAll(x) : new object[0]);
 
             return container;
         }
